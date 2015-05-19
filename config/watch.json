@@ -1,0 +1,40 @@
+{
+  "css": {
+    "options": {
+      "livereload": true
+    },
+    "files": [
+      "app/sass/**/*.scss"
+    ],
+    "tasks": [
+      "sass",
+      "cssmin:development",
+      "clean:css"
+    ]
+  },
+  "scripts": {
+    "options": {
+      "livereload": true
+    },
+    "files": [
+      "app/coffee/**/*.coffee"
+    ],
+    "tasks": [
+      "coffee",
+      "jshint",
+      "uglify:development",
+      "clean:js"
+    ]
+  },
+  "jade": {
+    "options": {
+      "livereload": true
+    },
+    "files": [
+      "app/**/*.jade"
+    ],
+    "tasks": [
+      "jade"
+    ]
+  }
+}

@@ -1,0 +1,209 @@
+html {
+  font-size:62.5%;
+}
+
+$white: #FFFFFF;
+$black: #000000;
+$black2: #07090B;
+$grey: #B3B5B7;
+$grey2: #8f9092;
+$grey3: #43474c;
+$darkBlue: #262d37;
+$red: #5d0000;
+$red2: #4a0000;
+$green: #08493d;
+$green2: #05332a;
+$orange: #7f2e00;
+
+body {
+  font-family: "arial", "helvetica", "sans-serif";
+  font-size: 1.2rem;
+  background-color: $darkBlue;
+  color: $white;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2,
+h3 {
+  margin: 0rem 1rem;
+  display: inline-block;
+}
+
+button {
+  outline: 0rem;
+  color: $black;
+  height: 4rem;
+  width: 10.25rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  border-color: transparent;
+  background-color: $grey;
+  margin: .5rem 0rem;
+
+  &:hover {
+    background-color: $grey2;
+  }
+}
+
+.game,
+.players,
+.monsters {
+  margin-top: 1rem;
+}
+
+.sidebar__monster,
+.sidebar__player {
+    margin: .2rem;
+    padding: 1rem;
+    background-color: $grey3;
+    color: $grey;
+    cursor: pointer;
+
+    .sidebar__name,
+    .sidebar__stat {
+      font-weight: 600;
+    }
+
+    .sidebar__stat--value {
+      margin-right: 1rem;
+    }
+
+    i {
+      font-size: 3rem;
+    }
+}
+
+.monster,
+.player {
+    padding: 1rem;
+    background-color: $grey3;
+    color: $grey;
+    display: none;
+    -moz-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+
+    &.turn {
+      -moz-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    &.dead {
+      background-color: $red;
+    }
+
+    .monster__stat,
+    .player__stat {
+        font-weight: 600;
+        margin-right: .2rem;
+        cursor: pointer;
+        display: inline-block;
+        padding: .5rem 0rem;
+    }
+
+    .player__name,
+    .monster__name,
+    .character__name,
+    .player__stat--value {
+        cursor: pointer;
+    }
+
+    .player__name--edit,
+    .monster__name--edit,
+    .character__name--edit,
+    .player__stat--edit,
+    .monster__stat--edit {
+        display: none;
+
+        input {
+            width: 4rem;
+            color: $black;
+        }
+
+        i {
+            cursor: pointer;
+            color: $grey;
+            margin-left: .5rem;
+        }
+    }
+
+    .player__name--edit {
+      input {
+        margin: 2rem 0rem .4rem 0rem;
+        height: 4rem;
+        font-size: 2rem;
+        width: 90%;
+      }
+
+      i {
+        font-size: 2rem;
+      }
+    }
+
+    .player__hit,
+    .monster__hit,
+    .player__heal,
+    .monster__heal,
+    .monster__delete,
+    .player__delete {
+      cursor: pointer;
+      background-color: $red;
+      color: $grey;
+      width: 100%;
+      margin: .4rem 0rem;
+
+      &:hover {
+        background-color: $red2;
+      }
+    }
+
+    .monster__heal,
+    .player__heal {
+      background-color: $green;
+
+      &:hover {
+        background-color: $green2;
+      }
+    }
+
+    .monster__delete,
+    .player__delete {
+      background-color: $black2;
+
+      &:hover {
+        background-color: $black;
+      }
+    }
+
+    .monster__hit--edit,
+    .player__hit--edit,
+    .monster__heal--edit,
+    .player__heal--edit {
+      display: none;
+
+      input {
+        width: 90%;
+        height: 4rem;
+        font-size: 2rem;
+        color: $black;
+      }
+
+      i {
+          cursor: pointer;
+          color: $grey;
+          font-size: 2rem;
+          margin-left: .5rem;
+      }
+    }
+}
+
+.monster {
+    background-color: $orange;
+}

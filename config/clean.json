@@ -1,0 +1,22 @@
+{
+  "wipe": [
+    "public/"
+  ],
+  "css": [
+    "public/css/**/*.css",
+    "public/css/**/*.css.map",
+    "!public/css/**/*.min.css",
+    "!public/css/**/*.min.css.map"
+  ],
+  "js": [
+    "public/js/**/*.js",
+    "public/js/**/*.js.map",
+    "!public/js/**/*.min.js",
+    "!public/js/**/*.min.js.map"
+  ],
+  "release": [
+    "public/css/**/*.min.css.map",
+    "public/js/**/*.min.js.map",
+    "public/js/**/*.src.coffee"
+  ]
+}

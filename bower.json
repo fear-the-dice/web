@@ -1,0 +1,23 @@
+{
+  "name": "lets-kill-things",
+  "version": "0.0.0",
+  "homepage": "https://github.com/obihann/lets-kill-things",
+  "authors": [
+    "Jeff Hann <jeffhann@gmail.com>"
+  ],
+  "license": "GPL-V2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.4",
+    "backbone": "~1.1.2",
+    "pubsub-js": "~1.5.2",
+    "mustache": "~2.0.0"
+  }
+}

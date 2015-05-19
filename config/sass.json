@@ -1,0 +1,10 @@
+{
+    "development": {
+        "options": {
+            "style": "compressed"
+        },
+        "files": {
+            "public/css/style.css": "app/sass/style.scss"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "development": {
+    "options": {
+      "pretty": true
+    },
+    "files": {
+      "public/index.html": "app/index.jade",
+      "public/templates/base.html": "app/templates/base.jade",
+      "public/templates/dm.html": "app/templates/dm.jade",
+      "public/templates/player.html": "app/templates/player.jade",
+      "public/templates/player_dm.html": "app/templates/player_dm.jade",
+      "public/templates/monster.html": "app/templates/monster.jade",
+      "public/templates/monster_dm.html": "app/templates/monster_dm.jade",
+      "public/templates/monster_sidebar.html": "app/templates/monster_sidebar.jade",
+      "public/templates/player_sidebar.html": "app/templates/player_sidebar.jade"
+    }
+  }
+}

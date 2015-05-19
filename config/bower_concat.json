@@ -1,0 +1,14 @@
+{
+  "development": {
+    "dest": "public/js/vendor/_bower.js",
+    "cssDest": "public/css/vendor/_bower.css",
+    "dependencies": {
+        "pubsub-js": "jquery",
+        "underscore": "jquery",
+        "backbone": "underscore"
+    },
+    "bowerOptions": {
+      "relative": false
+    }
+  }
+}

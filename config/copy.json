@@ -1,0 +1,13 @@
+{
+  "development": {
+    "files": [
+      {
+        "expand": true,
+        "flatten": true,
+        "filter": "isFile",
+        "src"    : "bower_components/bootstrap/fonts/*", 
+        "dest"   : "public/css/fonts"
+      }
+    ]
+  }
+}

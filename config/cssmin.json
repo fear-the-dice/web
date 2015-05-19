@@ -1,0 +1,15 @@
+{
+  "bower": {
+    "files": {
+      "public/css/vendor/_bower.min.css": "public/css/vendor/_bower.css"
+    }
+  },
+  "development": {
+    "options": {
+      "sourceMap": true
+    },
+    "files": {
+      "public/css/style.min.css": "public/css/style.css"
+    }
+  }
+}

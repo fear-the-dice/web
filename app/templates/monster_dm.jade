@@ -1,0 +1,53 @@
+.col-md-3
+  img.monster__thumb(src="{{thumb}}")
+.col-md-6
+  .row
+    h2.monster__name='{{monster}}'
+    span.monster__name--edit
+      input.input__monster
+      i.glyphicon.glyphicon-check
+  .row
+    .col-md-4
+      span.monster__stat(stat="initiative")='Initiative:'
+      span.monster__stat--value='{{initiative}}'
+      span.monster__stat--edit
+        input.input__stat(type="number")
+        i.glyphicon.glyphicon-check
+    .col-md-4
+      span.monster__stat(stat="ac")='AC:'
+      span.monster__stat--value='{{ac}}'
+      span.monster__stat--edit
+        input.input__stat(type="number")
+        i.glyphicon.glyphicon-check
+    .col-md-4
+      span.monster__stat(stat="speed")='Speed:'
+      span.monster__stat--value='{{speed}}'
+      span.monster__stat--edit
+        input.input__stat(type="number")
+        i.glyphicon.glyphicon-check
+  .row
+    .col-md-4
+      span.monster__stat(stat="hp")='HP:'
+      span.monster__stat--value='{{hp}}'
+      span.monster__stat--edit
+        input.input__stat(type="number")
+        i.glyphicon.glyphicon-check
+    .col-md-4
+      span.monster__stat(stat="damage")='Damage Taken:'
+      span.monster__stat--value='{{damage}}'
+    .col-md-4
+      span.monster__stat(stat="health")='Current Health:'
+      span.monster__stat--value='{{health}}'
+.col-md-3
+  .row
+    button.monster__hit="Hit Me!"
+    span.monster__hit--edit
+      input.input__hit(type="number", value="0")
+      i.glyphicon.glyphicon-check
+  .row
+    button.monster__heal="Heal Me!"
+    span.monster__heal--edit
+      input.input__heal(type="number", value="0")
+      i.glyphicon.glyphicon-check
+  .row
+    button.monster__delete="Delete Me!"

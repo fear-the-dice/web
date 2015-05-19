@@ -1,0 +1,11 @@
+{
+    "development": {
+        "options": {
+            "join": true,
+            "sourceMap": true
+        },
+        "files": {
+            "public/js/main.js": ["app/coffee/config.coffee", "app/coffee/init.coffee", "app/coffee/models/*.coffee", "app/coffee/collections/*.coffee", "app/coffee/views/*.coffee", "app/coffee/main.coffee"]
+        }
+    }
+}

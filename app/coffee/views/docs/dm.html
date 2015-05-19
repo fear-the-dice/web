@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>dm.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="base.html">
+                  base.coffee
+                </a>
+              
+                
+                <a class="source" href="dm.html">
+                  dm.coffee
+                </a>
+              
+                
+                <a class="source" href="monster.html">
+                  monster.coffee
+                </a>
+              
+                
+                <a class="source" href="monster_dm.html">
+                  monster_dm.coffee
+                </a>
+              
+                
+                <a class="source" href="monster_sidebar.html">
+                  monster_sidebar.coffee
+                </a>
+              
+                
+                <a class="source" href="player.html">
+                  player.coffee
+                </a>
+              
+                
+                <a class="source" href="player_dm.html">
+                  player_dm.coffee
+                </a>
+              
+                
+                <a class="source" href="player_sidebar.html">
+                  player_sidebar.coffee
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>dm.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>$ (<span class="hljs-function"><span class="hljs-params">(app)</span> -&gt;</span>
+  app.Views.Dm = app.Views.Base.extend
+    <span class="hljs-attribute">events</span>:
+      <span class="hljs-string">"click .players__add_btn"</span>: <span class="hljs-string">"addPlayer"</span>
+      <span class="hljs-string">"click .monster__add_btn"</span>: <span class="hljs-string">"addMonster"</span>
+      <span class="hljs-string">"click .turn__next_btn"</span>: <span class="hljs-string">"nextTurn"</span>
+
+    <span class="hljs-attribute">initialize</span>: <span class="hljs-function">-&gt;</span>
+      <span class="hljs-keyword">this</span>.template = app.Templates.dm
+      <span class="hljs-keyword">this</span>.render()
+
+      <span class="hljs-keyword">this</span>.playerModel = app.Models.Player
+      <span class="hljs-keyword">this</span>.playerView = app.Views.PlayerDM
+      <span class="hljs-keyword">this</span>.monsterModel = app.Models.Monster
+      <span class="hljs-keyword">this</span>.monsterView = app.Views.MonsterDM
+      <span class="hljs-keyword">this</span>.turn = <span class="hljs-number">0</span>
+
+      <span class="hljs-keyword">this</span>.pubsub_init()
+      <span class="hljs-keyword">this</span>.socket_init()
+
+      <span class="hljs-keyword">this</span>.loadPlayers()
+      <span class="hljs-keyword">this</span>.loadMonsters()
+
+    <span class="hljs-attribute">pubsub_init</span>: <span class="hljs-function">-&gt;</span>
+      PubSub.subscribe <span class="hljs-string">"GameCollection.sort"</span>, $.proxy(<span class="hljs-keyword">this</span>.reRender, <span class="hljs-keyword">this</span>)
+      PubSub.subscribe <span class="hljs-string">"PlayerCollection.add"</span>, $.proxy(<span class="hljs-keyword">this</span>.addSidebarPlayer, <span class="hljs-keyword">this</span>)
+      PubSub.subscribe <span class="hljs-string">"MonsterCollection.add"</span>, $.proxy(<span class="hljs-keyword">this</span>.addSidebarMonster, <span class="hljs-keyword">this</span>)
+
+    <span class="hljs-attribute">addSidebarMonster</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      <span class="hljs-keyword">this</span>.$el.find(<span class="hljs-string">".monsters"</span>).html <span class="hljs-string">""</span>
+
+      _.each app.Collections.Monster.models, $.proxy(<span class="hljs-function"><span class="hljs-params">(member)</span> -&gt;</span>
+        view = <span class="hljs-keyword">new</span> app.Views.MonsterSidebar member
+        <span class="hljs-keyword">this</span>.$el.find(<span class="hljs-string">".monsters"</span>).append view.$el
+      , <span class="hljs-keyword">this</span>)
+
+    <span class="hljs-attribute">addSidebarPlayer</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      <span class="hljs-keyword">this</span>.$el.find(<span class="hljs-string">".players"</span>).html <span class="hljs-string">""</span>
+
+      _.each app.Collections.Player.models, $.proxy(<span class="hljs-function"><span class="hljs-params">(member)</span> -&gt;</span>
+        view = <span class="hljs-keyword">new</span> app.Views.PlayerSidebar member
+        <span class="hljs-keyword">this</span>.$el.find(<span class="hljs-string">".players"</span>).append view.$el
+      , <span class="hljs-keyword">this</span>)
+
+    <span class="hljs-attribute">loadMonsters</span>: <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
+      app.Collections.Monster.fetch()
+
+    <span class="hljs-attribute">loadPlayers</span>: <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
+      app.Collections.Player.fetch()
+
+    <span class="hljs-attribute">addPlayer</span>: <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
+      model = <span class="hljs-keyword">new</span> app.Models.Player()
+      model.set <span class="hljs-string">"playing"</span>, <span class="hljs-literal">true</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.playerView model
+      app.socket.emit <span class="hljs-string">"NewPlayer"</span>, JSON.stringify model.toJSON()
+      app.Collections.Game.push model
+      model
+
+    <span class="hljs-attribute">addMonster</span>: <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
+      model = <span class="hljs-keyword">new</span> app.Models.Monster()
+      model.set <span class="hljs-string">"playing"</span>, <span class="hljs-literal">true</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.monsterView model
+      app.socket.emit <span class="hljs-string">"NewMonster"</span>, JSON.stringify model.toJSON()
+      app.Collections.Game.push model
+      model
+
+    <span class="hljs-attribute">nextTurn</span>: <span class="hljs-function"><span class="hljs-params">(e)</span> -&gt;</span>
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span>(<span class="hljs-keyword">this</span>.currentPlayer) != <span class="hljs-string">'undefined'</span>
+        <span class="hljs-keyword">this</span>.currentPlayer.view.endTurn()
+        app.socket.emit <span class="hljs-string">"EndTurn"</span>, JSON.stringify <span class="hljs-keyword">this</span>.currentPlayer.toJSON()
+
+      <span class="hljs-keyword">this</span>.currentPlayer = app.Collections.Game.at <span class="hljs-keyword">this</span>.turn
+      app.socket.emit <span class="hljs-string">"StartTurn"</span>, JSON.stringify <span class="hljs-keyword">this</span>.currentPlayer.toJSON()
+
+      <span class="hljs-keyword">this</span>.currentPlayer.view.startTurn()
+      <span class="hljs-keyword">this</span>.turn = <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.turn &lt; (app.Collections.Game.length - <span class="hljs-number">1</span>)) <span class="hljs-keyword">then</span> (<span class="hljs-keyword">this</span>.turn + <span class="hljs-number">1</span>) <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>
+      <span class="hljs-keyword">this</span>.currentPlayer
+
+  <span class="hljs-keyword">this</span>
+)(<span class="hljs-built_in">window</span>.LKT)</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
