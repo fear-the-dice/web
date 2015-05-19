@@ -1,5 +1,5 @@
 {
-  "name": "lets-kill-things",
+  "name": "fear-the-dice",
   "version": "0.0.1",
   "description": "A tool for helping manage combat in a turn based environment.",
   "main": "Gruntfile.js",
