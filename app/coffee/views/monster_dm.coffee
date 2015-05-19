@@ -68,7 +68,7 @@ $ ((app) ->
 
       this.reRender()
 
-    healPlayer: (e) ->
+    heal: (e) ->
       this.$el.find(".monster__heal").hide()
       this.$el.find(".monster__heal--edit").show()
 
