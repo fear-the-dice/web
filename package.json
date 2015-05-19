@@ -1,7 +1,7 @@
 {
   "name": "lets-kill-things",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A tool for helping manage combat in a turn based environment.",
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "^0.4.5",
@@ -25,12 +25,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/obihann/lets-kill-things.git"
+    "url": "https://github.com/fear-the-dice.web.git"
   },
-  "author": "",
+  "author": "Jeffrey Hann <jeffhann@gmail.com> (http://jeffreyhann.ca)",
+  "contributors": "Shawn Gillam-wright <s.gillamwright@gmail.com> (http://www.gillamwright.com)",
   "license": "GPL-V2",
   "bugs": {
-    "url": "https://github.com/obihann/lets-kill-things/issues"
+    "url": "https://github.com/fear-the-dice/overview/issues"
   },
-  "homepage": "https://github.com/obihann/lets-kill-things"
+  "homepage": "http://fearthedice.com"
 }
