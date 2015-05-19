@@ -18,10 +18,11 @@ $ ((app) ->
       this.$el
 
     addMonster: ->
-      this.model.set "playing", true
-      app.socket.emit "NewMonster", JSON.stringify this.model.toJSON()
-      new app.Views.MonsterDM this.model
-      app.Collections.Game.add this.model
+      model = new app.Models.Monster()
+      model.set "playing", true
+      app.socket.emit "NewMonster", JSON.stringify model.toJSON()
+      new app.Views.MonsterDM model
+      app.Collections.Game.add model
 
   this
 )(window.LKT)

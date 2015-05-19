@@ -7,11 +7,11 @@ $ ((app) ->
 
     home: ->
       view = new app.Views.Base()
-      $("body").append view.$el
+      $("body .base").html view.$el
 
     dm: ->
       view = new app.Views.Dm()
-      $("body").append view.$el
+      $("body .base").html view.$el
 
     pubsub_init: ->
       PubSub.subscribe "PlayerCollection.change", $.proxy(() -> 
