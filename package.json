@@ -1,5 +1,5 @@
 {
-  "name": "lets-kill-things",
+  "name": "fear-the-dice",
   "version": "0.0.1",
   "description": "A tool for helping manage combat in a turn based environment.",
   "main": "Gruntfile.js",
@@ -16,8 +16,6 @@
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
     "load-grunt-configs": "^0.4.3"
-  },
-  "devDependencies": {
     "grunt-contrib-sass": "^0.9.2"
   },
   "scripts": {
@@ -31,7 +29,7 @@
   "contributors": "Shawn Gillam-wright <s.gillamwright@gmail.com> (http://www.gillamwright.com)",
   "license": "GPL-V2",
   "bugs": {
-    "url": "https://github.com/fear-the-dice/overview/issues"
+    "url": "https://github.com/fear-the-dice/web/issues"
   },
   "homepage": "http://fearthedice.com"
 }
