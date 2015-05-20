@@ -15,7 +15,7 @@ $ ((app) ->
 
     initialize: (args) ->
       if typeof(args) == 'undefined'
-        this.id = app.Utils.guid()
+        this.set "id", app.Utils.guid()
 
       return this
     this

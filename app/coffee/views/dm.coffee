@@ -26,7 +26,7 @@ $ ((app) ->
       PubSub.subscribe "PlayerCollection.add", $.proxy(this.addSidebarPlayer, this)
       PubSub.subscribe "MonsterCollection.add", $.proxy(this.addSidebarMonster, this)
 
-    addSidebarMonster: () ->
+    addSidebarMonster: ->
       this.$el.find(".monsters").html ""
 
       _.each app.Collections.Monster.models, $.proxy((member) ->
@@ -34,7 +34,7 @@ $ ((app) ->
         this.$el.find(".monsters").append view.$el
       , this)
 
-    addSidebarPlayer: () ->
+    addSidebarPlayer: ->
       this.$el.find(".players").html ""
 
       _.each app.Collections.Player.models, $.proxy((member) ->
@@ -42,10 +42,10 @@ $ ((app) ->
         this.$el.find(".players").append view.$el
       , this)
 
-    loadMonsters: (e) ->
+    loadMonsters: ->
       app.Collections.Monster.fetch()
 
-    loadPlayers: (e) ->
+    loadPlayers: ->
       app.Collections.Player.fetch()
 
     addPlayer: (e) ->

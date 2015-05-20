@@ -19,6 +19,8 @@ $ ((app) ->
 
     addMonster: ->
       model = new app.Models.Monster()
+      console.log model
+      console.log JSON.stringify model.toJSON()
       model.set "playing", true
       app.socket.emit "NewMonster", JSON.stringify model.toJSON()
       new app.Views.MonsterDM model

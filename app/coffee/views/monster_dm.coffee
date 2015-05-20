@@ -1,5 +1,5 @@
 $ ((app) ->
-  app.Views.MonsterDM = app.Views.Monster.extend 
+  app.Views.MonsterDM = app.Views.Monster.extend
     events:
       "click .monster__stat": "editStat"
       "click .monster__stat--value": "editStat"
@@ -64,7 +64,7 @@ $ ((app) ->
       $stat.find(".monster__stat--value").show()
 
       if stat == "initiative"
-        PubSub.publish "MonsterOrderChange"
+        PubSub.publish "PlayerOrderChange"
 
       this.reRender()
 
@@ -79,13 +79,13 @@ $ ((app) ->
       this.$el.find(".monster__heal--edit").val 0
       this.$el.find(".monster__heal").show()
 
-      stats = 
+      stats =
         damage: this.model.get("damage") - value
         health: this.model.get("health") + value
 
       stats.damage = if (stats.damage < 0) then 0 else stats.damage
 
-      this.model.set stats 
+      this.model.set stats
 
       this.reRender()
 
