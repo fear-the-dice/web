@@ -204,6 +204,52 @@ button {
     }
 }
 
+.base-view {
+    .turn__next_btn,
+    .player__hit,
+    .monster__hit,
+    .player__heal,
+    .monster__heal,
+    .monster__delete,
+    .player__delete {
+        display: none;
+    }
+}
+
+.active-player {
+    .turn__next_btn {
+        display: inline-block;
+    }
+
+    .player,
+    .monster {
+        &.turn,
+        &.active-player {
+            .player__hit,
+            .monster__hit,
+            .player__heal,
+            .monster__heal,
+            .monster__delete,
+            .player__delete {
+                display: none;
+            }
+        }
+
+        .player__control {
+            display: none;
+        }
+
+        .player__hit,
+        .monster__hit,
+        .player__heal,
+        .monster__heal,
+        .monster__delete,
+        .player__delete {
+             display: inline-block;
+        }
+    }
+}
+
 .monster {
     background-color: $orange;
 }

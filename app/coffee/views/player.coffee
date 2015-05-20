@@ -4,6 +4,7 @@ $ ((app) ->
     className: "row"
     events:
       "click .player__hit": "hitPlayer"
+      "click .player__control": "takeControl"
       "click .player__hit--edit .glyphicon-check": "saveDamage"
 
     initialize: (model) ->
@@ -76,6 +77,10 @@ $ ((app) ->
       this.model.set stats
 
       this.reRender()
+
+    takeControl: (e) ->
+      this.$el.addClass "active-player"
+      PubSub.publish "ActivePlayer", this.model.id
 
   this
 )(window.LKT)

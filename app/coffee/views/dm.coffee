@@ -64,17 +64,5 @@ $ ((app) ->
       app.Collections.Game.push model
       model
 
-    nextTurn: (e) ->
-      if typeof(this.currentPlayer) != 'undefined'
-        this.currentPlayer.view.endTurn()
-        app.socket.emit "EndTurn", JSON.stringify this.currentPlayer.toJSON()
-
-      this.currentPlayer = app.Collections.Game.at this.turn
-      app.socket.emit "StartTurn", JSON.stringify this.currentPlayer.toJSON()
-
-      this.currentPlayer.view.startTurn()
-      this.turn = if (this.turn < (app.Collections.Game.length - 1)) then (this.turn + 1) else 0
-      this.currentPlayer
-
   this
 )(window.LKT)

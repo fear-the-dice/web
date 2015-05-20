@@ -21,7 +21,10 @@
             span.player__stat(stat="damage")='Damage Taken:'
             span.player__stat--value='{{damage}}'
 .col-md-3
-    button.player__hit="Hit Me!"
-    span.player__hit--edit
-        input.input__hit(type="number", value="0")
-        i.glyphicon.glyphicon-check
+    .row
+        button.player__control="Take Control"
+    .row
+        button.player__hit="Hit Me!"
+        span.player__hit--edit
+            input.input__hit(type="number", value="0")
+            i.glyphicon.glyphicon-check
