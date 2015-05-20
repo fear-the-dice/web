@@ -82,6 +82,7 @@ $ ((app) ->
 
     saveStat: (e) ->
       $stat = $(e.currentTarget).parent().parent()
+      console.log $stat
       stat = $stat.find(".player__stat").attr "stat"
 
       value = parseInt $stat.find(".player__stat--edit input").val()
@@ -94,7 +95,6 @@ $ ((app) ->
         PubSub.publish "PlayerOrderChange"
 
       this.reRender()
-      this.$el.find(".player__hit--edit").show()
 
     healPlayer: (e) ->
       this.$el.find(".player__heal").hide()

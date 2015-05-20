@@ -3,8 +3,12 @@ $ ((app) ->
     tagName: "div"
     className: "container-fluid"
 
+    events:
+      "click .turn__next_btn": "nextTurn"
+
     pubsub_init: ->
       PubSub.subscribe "GameCollection.sort", $.proxy(this.reRender, this)
+      PubSub.subscribe "ActivePlayer", $.proxy(this.activePlayer, this)
 
     socket_init: ->
       # turn socket listeners
@@ -98,6 +102,7 @@ $ ((app) ->
       this.playerView = app.Views.Player
       this.monsterModel = app.Models.Monster
       this.monsterView = app.Views.Monster
+      this.turn = 0
 
       this.pubsub_init()
       this.socket_init()
@@ -108,7 +113,7 @@ $ ((app) ->
       this.$el.html Mustache.render this.template
       this.$el
 
-    reRender: () ->
+    reRender: ->
       this.$el.find(".game").html ""
 
       _.each app.Collections.Game.models, $.proxy((member) ->
@@ -116,6 +121,25 @@ $ ((app) ->
         this.$el.find(".game").append view.$el
         view.postRender()
       , this)
+
+    activePlayer: (msg, data) ->
+      this.$el.addClass "active-player"
+      activePlayer = app.Collections.Game.get data
+      new app.Views.PlayerDM activePlayer
+      activePlayer.view.$el.addClass "active-player"
+      this.reRender()
+
+    nextTurn: (e) ->
+      if typeof(this.currentPlayer) != 'undefined'
+        this.currentPlayer.view.endTurn()
+        app.socket.emit "EndTurn", JSON.stringify this.currentPlayer.toJSON()
+
+      this.currentPlayer = app.Collections.Game.at this.turn
+      app.socket.emit "StartTurn", JSON.stringify this.currentPlayer.toJSON()
+
+      this.currentPlayer.view.startTurn()
+      this.turn = if (this.turn < (app.Collections.Game.length - 1)) then (this.turn + 1) else 0
+      this.currentPlayer
 
   this
 )(window.LKT)
