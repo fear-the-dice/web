@@ -4,6 +4,7 @@ module.exports = function(grunt) {
         'bower_concat', 
         'copy',
         'jade',
+        'mustache_render:development',
         'coffee', 
         'jshint',
         'uglify', 

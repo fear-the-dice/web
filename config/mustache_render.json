@@ -1,0 +1,26 @@
+{
+    "release": {
+        "options": {
+            "escape": false
+        },
+        "files": [
+            {
+                "data": "mustache-prod.json",
+                "template": "index.mustache",
+                "dest": "public/index.html"
+            }
+        ]
+    },
+    "development": {
+        "options": {
+            "escape": false
+        },
+        "files": [
+            {
+                "data": "mustache-local.json",
+                "template": "index.mustache",
+                "dest": "public/index.html"
+            }
+        ]
+    }
+}

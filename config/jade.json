@@ -4,7 +4,7 @@
       "pretty": true
     },
     "files": {
-      "public/index.html": "app/index.jade",
+      "index.mustache": "app/index.jade",
       "public/templates/base.html": "app/templates/base.jade",
       "public/templates/dm.html": "app/templates/dm.jade",
       "public/templates/player.html": "app/templates/player.jade",
