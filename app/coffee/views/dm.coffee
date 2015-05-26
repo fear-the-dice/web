@@ -44,9 +44,11 @@ $ ((app) ->
 
     loadMonsters: ->
       app.Collections.Monster.fetch()
+      app.Collections.Monster.sort()
 
     loadPlayers: ->
       app.Collections.Player.fetch()
+      app.Collections.Player.sort()
 
     addPlayer: (e) ->
       model = new app.Models.Player()

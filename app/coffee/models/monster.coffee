@@ -1,5 +1,6 @@
 $ ((app) ->
   app.Models.Monster = Backbone.Model.extend
+    url: 'http://' + app.Config.api_server[app.Config.enviroment] + '/monsters/'
     defaults:
       monster: "Bandit"
       turn: false
@@ -13,13 +14,5 @@ $ ((app) ->
       manual: 343
       thumb: "//www.fillmurray.com/g/200/140"
       playling: false
-
-    initialize: (args) ->
-      if typeof(args) == 'undefined'
-        this.set "id", app.Utils.guid()
-
-      return this
-    this
-
   this
 )(window.LKT)

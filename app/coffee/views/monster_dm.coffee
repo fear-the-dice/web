@@ -44,6 +44,8 @@ $ ((app) ->
       this.model.set "monster", value
       $stat.find(".monster__name--edit").hide()
       $stat.find(".monster__name").show()
+      console.log(this.model)
+      this.model.save()
 
     editStat: (e) ->
       $stat = $(e.currentTarget).parent()
@@ -62,6 +64,7 @@ $ ((app) ->
       this.model.set stat, value
       $stat.find(".monster__stat--edit").hide()
       $stat.find(".monster__stat--value").show()
+      this.model.save()
 
       if stat == "initiative"
         PubSub.publish "PlayerOrderChange"
