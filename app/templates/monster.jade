@@ -1,6 +1,6 @@
 .col-md-3
   img.monster__thumb(src="{{thumb}}")
-.col-md-6
+.col-md-8
   .row
   h2.monster__name='{{monster}}'
   span.monster__name--edit
@@ -13,9 +13,9 @@
   .col-md-4
     span.monster__stat(stat="damage")='Damage Taken:'
     span.monster__stat--value='{{damage}}'
-.col-md-3
+.col-md-1
   .row
-  button.monster__hit="Hit Me!"
+  button.glyphicon.glyphicon-fire.monster__hit(alt="Hit Me!")
   span.monster__hit--edit
     input.input__hit(type="number", value="0")
     i.glyphicon.glyphicon-check

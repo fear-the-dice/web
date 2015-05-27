@@ -1,6 +1,6 @@
 .col-md-3
   img.monster__thumb(src="{{thumb}}")
-.col-md-6
+.col-md-8
   .row
     h2.monster__name='{{monster}}'
     span.monster__name--edit
@@ -38,16 +38,16 @@
     .col-md-4
       span.monster__stat(stat="health")='Current Health:'
       span.monster__stat--value='{{health}}'
-.col-md-3
+.col-md-1
   .row
-    button.monster__hit="Hit Me!"
+    button.glyphicon.glyphicon-fire.monster__hit(alt="Hit Me!")
     span.monster__hit--edit
       input.input__hit(type="number", value="0")
       i.glyphicon.glyphicon-check
   .row
-    button.monster__heal="Heal Me!"
+    button.glyphicon.glyphicon-heart.monster__heal(alt="Heal Me!")
     span.monster__heal--edit
       input.input__heal(type="number", value="0")
       i.glyphicon.glyphicon-check
   .row
-    button.monster__delete="Delete Me!"
+    button.glyphicon.glyphicon-remove.monster__delete(alt="Delete Me!")

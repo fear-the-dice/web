@@ -1,6 +1,6 @@
 .col-md-3
     img.player__thumb(src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg")
-.col-md-6
+.col-md-8
     .row
         h2.player__name='{{character}}'
         span.player__name--edit
@@ -20,11 +20,11 @@
         .col-md-4
             span.player__stat(stat="damage")='Damage Taken:'
             span.player__stat--value='{{damage}}'
-.col-md-3
+.col-md-1
     .row
         button.player__control="Take Control"
     .row
-        button.player__hit="Hit Me!"
+        button.glyphicon.glyphicon-fire.player__hit="Hit Me!"
         span.player__hit--edit
             input.input__hit(type="number", value="0")
             i.glyphicon.glyphicon-check
