@@ -18,7 +18,7 @@ $ ((app) ->
       this.$el
 
     addMonster: ->
-      model = new app.Models.Monster()
+      model = this.model.clone()
       console.log model
       console.log JSON.stringify model.toJSON()
       model.set "playing", true
