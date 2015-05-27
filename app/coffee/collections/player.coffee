@@ -3,7 +3,7 @@ $ ((app) ->
     model: app.Models.Player
     url: 'http://' + app.Config.api_server[app.Config.enviroment] + '/players'
     comparator: (model) ->
-      parseInt -model.get("initiative")
+      model.get("character")
 
   this
 )(window.LKT)

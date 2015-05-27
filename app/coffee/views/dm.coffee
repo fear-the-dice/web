@@ -23,8 +23,13 @@ $ ((app) ->
 
     pubsub_init: ->
       PubSub.subscribe "GameCollection.sort", $.proxy(this.reRender, this)
+
       PubSub.subscribe "PlayerCollection.add", $.proxy(this.addSidebarPlayer, this)
       PubSub.subscribe "MonsterCollection.add", $.proxy(this.addSidebarMonster, this)
+
+      PubSub.subscribe "PlayerCollection.change", $.proxy(this.addSidebarPlayer, this)
+      PubSub.subscribe "MonsterCollection.change", $.proxy(this.addSidebarMonster, this)
+      PubSub.subscribe "GameCollection.change", $.proxy(this.addSidebarMonster, this)
 
     addSidebarMonster: ->
       this.$el.find(".monsters").html ""
@@ -44,16 +49,21 @@ $ ((app) ->
 
     loadMonsters: ->
       app.Collections.Monster.fetch()
+      app.Collections.Monster.sort()
 
     loadPlayers: ->
       app.Collections.Player.fetch()
+      app.Collections.Player.sort()
 
     addPlayer: (e) ->
       model = new app.Models.Player()
       model.set "playing", true
       new this.playerView model
       app.socket.emit "NewPlayer", JSON.stringify model.toJSON()
+      app.Collections.Player.push model
+      app.Collections.Player.sort()
       app.Collections.Game.push model
+      model.save()
       model
 
     addMonster: (e) ->
@@ -61,7 +71,10 @@ $ ((app) ->
       model.set "playing", true
       new this.monsterView model
       app.socket.emit "NewMonster", JSON.stringify model.toJSON()
+      app.Collections.Monster.push model
+      app.Collections.Monster.sort()
       app.Collections.Game.push model
+      model.save()
       model
 
   this
