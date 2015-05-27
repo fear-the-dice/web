@@ -22,5 +22,17 @@
                 "dest": "public/index.html"
             }
         ]
+    },
+    "staging": {
+        "options": {
+            "escape": false
+        },
+        "files": [
+            {
+                "data": "mustache-stage.json",
+                "template": "index.mustache",
+                "dest": "public/index.html"
+            }
+        ]
     }
 }
