@@ -1,0 +1,4 @@
+{
+    "server": "http://cdn.rawgit.com/fear-the-dice/fear-the-dice.github.io/master/demo/",
+    "socket": "http://fear-the-dice-socket.herokuapp.com/"
+}

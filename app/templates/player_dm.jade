@@ -1,6 +1,6 @@
 .col-md-3
   img.player__thumb(src="{{thumb}}")
-.col-md-6
+.col-md-8
   .row
     h2.character__name='{{character}}'
     span.character__name--edit
@@ -12,46 +12,46 @@
       i.glyphicon.glyphicon-check
   .row
     .col-md-4
+      span.player__stat.lead(stat="ac")='AC:'
+      span.player__stat--value.lead='{{ac}}'
+      span.player__stat--edit
+        input.input__stat(type="number")
+        i.glyphicon.glyphicon-check
+    .col-md-4
+      span.player__stat.lead(stat="hp")='HP:'
+      span.player__stat--value.lead='{{hp}}'
+      span.player__stat--edit
+        input.input__stat(type="number")
+        i.glyphicon.glyphicon-check
+    .col-md-4
+      span.player__stat--locked.lead(stat="speed")='Speed:'
+      span.player__stat--value--locked.lead='{{speed}}'
+      span.player__stat--edit
+        input.input__stat(type="number")
+        i.glyphicon.glyphicon-check
+  .row
+    .col-md-4
       span.player__stat(stat="initiative")='Initiative:'
       span.player__stat--value='{{initiative}}'
       span.player__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.player__stat(stat="ac")='AC:'
-      span.player__stat--value='{{ac}}'
-      span.player__stat--edit
-        input.input__stat(type="number")
-        i.glyphicon.glyphicon-check
+      span.player__stat--locked(stat="damage")='Damage Taken:'
+      span.player__stat--value--locked='{{damage}}'
     .col-md-4
-      span.player__stat(stat="speed")='Speed:'
-      span.player__stat--value='{{speed}}'
-      span.player__stat--edit
-        input.input__stat(type="number")
-        i.glyphicon.glyphicon-check
+      span.player__stat--locked(stat="health")='Current Health:'
+      span.player__stat--value--locked='{{health}}'
+.col-md-1
   .row
-    .col-md-4
-      span.player__stat(stat="hp")='HP:'
-      span.player__stat--value='{{hp}}'
-      span.player__stat--edit
-        input.input__stat(type="number")
-        i.glyphicon.glyphicon-check
-    .col-md-4
-      span.player__stat(stat="damage")='Damage Taken:'
-      span.player__stat--value='{{damage}}'
-    .col-md-4
-      span.player__stat(stat="health")='Current Health:'
-      span.player__stat--value='{{health}}'
-.col-md-3
-  .row
-    button.player__hit="Hit Me!"
+    button.glyphicon.glyphicon-fire.player__hit(alt="Hit Me!")
     span.player__hit--edit
       input.input__hit(type="number", value="0")
       i.glyphicon.glyphicon-check
   .row
-    button.player__heal="Heal Me!"
+    button.glyphicon.glyphicon-heart.player__heal(alt="Heal Me!")
     span.player__heal--edit
       input.input__heal(type="number", value="0")
       i.glyphicon.glyphicon-check
   .row
-    button.player__delete="Delete Me!"
+    button.glyphicon.glyphicon-remove.player__delete(alt="Delete Me!")

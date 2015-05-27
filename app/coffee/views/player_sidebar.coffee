@@ -4,7 +4,8 @@ $ ((app) ->
     className: "sidebar__player"
 
     events:
-      "click i": "addPlayer"
+      "click .glyphicon-remove": "deletePlayer"
+      "click .glyphicon-chevron-right": "addPlayer"
 
     initialize: (model) ->
       this.template = app.Templates.player_sidebar
@@ -21,7 +22,11 @@ $ ((app) ->
       this.model.set "playing", true
       app.socket.emit "NewPlayer", JSON.stringify this.model.toJSON()
       new app.Views.PlayerDM this.model
+      app.Collections.Player.add this.model
       app.Collections.Game.add this.model
+
+    deletePlayer: ->
+      this.model.destroy()
 
   this
 )(window.LKT)

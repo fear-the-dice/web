@@ -1,30 +1,16 @@
 .col-md-3
     img.player__thumb(src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/140.jpg")
-.col-md-6
+.col-md-8
     .row
-        h2.player__name='{{character}}'
-        span.player__name--edit
-            input.input__name
-            i.glyphicon.glyphicon-check
-        h3.player__name='({{name}})'
-        span.player__name--edit
-            input.input__player
-            i.glyphicon.glyphicon-check
+        h2.player__name--locked='{{character}}'
+        h3.player__name--locked='({{name}})'
     .row
         .col-md-4
-            span.player__stat(stat="initiative")='Initiative:'
-            span.player__stat--value='{{initiative}}'
-            span.player__stat--edit
-                input.input__stat(type="number")
-                i.glyphicon.glyphicon-check
+            span.player__stat--locked(stat="initiative")='Initiative:'
+            span.player__stat--value--locked='{{initiative}}'
         .col-md-4
-            span.player__stat(stat="damage")='Damage Taken:'
-            span.player__stat--value='{{damage}}'
-.col-md-3
+            span.player__stat--locked(stat="damage")='Damage Taken:'
+            span.player__stat--value--locked='{{damage}}'
+.col-md-1
     .row
-        button.player__control="Take Control"
-    .row
-        button.player__hit="Hit Me!"
-        span.player__hit--edit
-            input.input__hit(type="number", value="0")
-            i.glyphicon.glyphicon-check
+        button.glyphicon.glyphicon-user.player__control(alt="Take Control")

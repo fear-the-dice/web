@@ -45,11 +45,13 @@ $ ((app) ->
       $stat.find(".monster__name--edit").hide()
       $stat.find(".monster__name").show()
 
+      if this.model.get("duplicate") != true
+        this.model.save()
+
     editStat: (e) ->
       $stat = $(e.currentTarget).parent()
       stat = $stat.find(".monster__stat").attr "stat"
 
-      $stat.find(".monster__stat--value").hide()
       $stat.find(".monster__stat--edit input").val this.model.get stat
       $stat.find(".monster__stat--edit").show()
 
@@ -62,6 +64,9 @@ $ ((app) ->
       this.model.set stat, value
       $stat.find(".monster__stat--edit").hide()
       $stat.find(".monster__stat--value").show()
+
+      if this.model.get("duplicate") != true
+        this.model.save()
 
       if stat == "initiative"
         PubSub.publish "PlayerOrderChange"

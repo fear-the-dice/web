@@ -4,7 +4,8 @@ $ ((app) ->
     className: "sidebar__monster"
 
     events:
-      "click i": "addMonster"
+      "click .glyphicon-remove": "deleteMonster"
+      "click .glyphicon-chevron-right": "addMonster"
 
     initialize: (model) ->
       this.template = app.Templates.monster_sidebar
@@ -18,13 +19,16 @@ $ ((app) ->
       this.$el
 
     addMonster: ->
-      model = new app.Models.Monster()
-      console.log model
-      console.log JSON.stringify model.toJSON()
+      model = this.model.clone()
+      model.set "id", app.Utils.guid()
+      model.set "duplicate", true
       model.set "playing", true
       app.socket.emit "NewMonster", JSON.stringify model.toJSON()
       new app.Views.MonsterDM model
       app.Collections.Game.add model
+
+    deleteMonster: ->
+      this.model.destroy()
 
   this
 )(window.LKT)

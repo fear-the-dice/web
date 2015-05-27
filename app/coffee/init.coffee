@@ -8,6 +8,18 @@ $ ((app) ->
     s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4()
 
+  # http://naleid.com/blog/2012/10/29/overriding-backbone-js-sync-to-allow-cross-origin-resource-sharing-cors/
+  proxiedSync = Backbone.sync
+
+  Backbone.sync = (method, model, options) ->
+    if typeof(options) == 'undefined'
+      options = {}
+
+    if !options.crossDomain
+      options.crossDomain = true
+
+    proxiedSync method, model, options
+
   # Define array of all template files
   templates = new Array "player", "monster", "base", "dm", "player_dm", "monster_dm",
     "player_sidebar", "monster_sidebar"

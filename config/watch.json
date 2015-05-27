@@ -34,7 +34,8 @@
       "app/**/*.jade"
     ],
     "tasks": [
-      "jade"
+      "jade",
+      "mustache_render:development"
     ]
   }
 }

@@ -1,5 +1,6 @@
 .DS_Store
 .lvimrc
+index.mustache
 
 node_modules/
 bower_components/
