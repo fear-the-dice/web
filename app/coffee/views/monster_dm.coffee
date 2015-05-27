@@ -44,7 +44,6 @@ $ ((app) ->
       this.model.set "monster", value
       $stat.find(".monster__name--edit").hide()
       $stat.find(".monster__name").show()
-      console.log(this.model)
       this.model.save()
 
     editStat: (e) ->

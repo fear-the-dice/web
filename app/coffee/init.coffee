@@ -8,10 +8,6 @@ $ ((app) ->
     s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4()
 
-  # http://backbonejs.org/#Sync-emulateHTTP
-  # this is only until we have a real REST server
-  Backbone.emulateHTTP = true
-
   # http://naleid.com/blog/2012/10/29/overriding-backbone-js-sync-to-allow-cross-origin-resource-sharing-cors/
   proxiedSync = Backbone.sync
 
