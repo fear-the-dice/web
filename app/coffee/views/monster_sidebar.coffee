@@ -20,8 +20,8 @@ $ ((app) ->
 
     addMonster: ->
       model = this.model.clone()
-      console.log model
-      console.log JSON.stringify model.toJSON()
+      model.set "id", app.Utils.guid()
+      model.set "duplicate", true
       model.set "playing", true
       app.socket.emit "NewMonster", JSON.stringify model.toJSON()
       new app.Views.MonsterDM model
