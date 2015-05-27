@@ -22,10 +22,10 @@ $ ((app) ->
       this.model.set "playing", true
       app.socket.emit "NewPlayer", JSON.stringify this.model.toJSON()
       new app.Views.PlayerDM this.model
+      app.Collections.Player.add this.model
       app.Collections.Game.add this.model
 
     deletePlayer: ->
-      app.Collections.Player.remove this.model
       this.model.destroy()
 
   this

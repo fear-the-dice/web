@@ -4,7 +4,8 @@ $ ((app) ->
     className: "sidebar__monster"
 
     events:
-      "click i": "addMonster"
+      "click .glyphicon-remove": "deleteMonster"
+      "click .glyphicon-chevron-right": "addMonster"
 
     initialize: (model) ->
       this.template = app.Templates.monster_sidebar
@@ -25,6 +26,9 @@ $ ((app) ->
       app.socket.emit "NewMonster", JSON.stringify model.toJSON()
       new app.Views.MonsterDM model
       app.Collections.Game.add model
+
+    deleteMonster: ->
+      this.model.destroy()
 
   this
 )(window.LKT)

@@ -27,9 +27,8 @@ $ ((app) ->
       PubSub.subscribe "PlayerCollection.add", $.proxy(this.addSidebarPlayer, this)
       PubSub.subscribe "MonsterCollection.add", $.proxy(this.addSidebarMonster, this)
 
-      PubSub.subscribe "PlayerCollection.change", $.proxy(this.addSidebarPlayer, this)
-      PubSub.subscribe "MonsterCollection.change", $.proxy(this.addSidebarMonster, this)
-      PubSub.subscribe "GameCollection.change", $.proxy(this.addSidebarMonster, this)
+      PubSub.subscribe "PlayerCollection.destroy", $.proxy(this.addSidebarPlayer, this)
+      PubSub.subscribe "MonsterCollection.destroy", $.proxy(this.addSidebarMonster, this)
 
     addSidebarMonster: ->
       this.$el.find(".monsters").html ""

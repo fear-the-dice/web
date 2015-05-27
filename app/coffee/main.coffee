@@ -14,11 +14,11 @@ $ ((app) ->
       $("body .base").html view.$el
 
     pubsub_init: ->
-      PubSub.subscribe "PlayerCollection.change", $.proxy(() -> 
+      PubSub.subscribe "PlayerCollection.change", $.proxy(() ->
         app.Collections.Player.sort()
       , this)
 
-      PubSub.subscribe "MonsterCollection.change", $.proxy(() -> 
+      PubSub.subscribe "MonsterCollection.change", $.proxy(() ->
         app.Collections.Monster.sort()
       , this)
 
@@ -36,12 +36,24 @@ $ ((app) ->
       app.Collections.Player.bind "change", () ->
         PubSub.publish "PlayerCollection.change"
 
+      app.Collections.Player.bind "update", () ->
+        PubSub.publish "PlayerCollection.update"
+
+      app.Collections.Player.bind "destroy", () ->
+        PubSub.publish "PlayerCollection.destroy"
+
       # Monster collection bindings
       app.Collections.Monster.bind "add", (model) ->
         PubSub.publish "MonsterCollection.add"
 
       app.Collections.Monster.bind "change", () ->
         PubSub.publish "MonsterCollection.change"
+
+      app.Collections.Monster.bind "update", () ->
+        PubSub.publish "MonsterCollection.update"
+
+      app.Collections.Monster.bind "destroy", () ->
+        PubSub.publish "MonsterCollection.destroy"
 
       # Game collection bindings
       app.Collections.Game.bind "add", () ->
