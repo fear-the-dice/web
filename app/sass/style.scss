@@ -100,7 +100,9 @@ button {
     }
 
     .monster__stat,
-    .player__stat {
+    .monster__stat--locked,
+    .player__stat,
+    .player__stat--locked {
         font-weight: 600;
         margin-right: .2rem;
         cursor: pointer;
@@ -115,6 +117,12 @@ button {
         cursor: pointer;
     }
 
+    .monster__stat--locked,
+    .player__stat--locked,
+    .player__stat--value--locked {
+        cursor: auto;
+    }
+
     .player__name--edit,
     .monster__name--edit,
     .character__name--edit,
@@ -123,7 +131,9 @@ button {
         display: none;
 
         input {
-            width: 4rem;
+            font-size: 2rem;
+            height: 4rem;
+            width: 8rem;
             color: $black;
         }
 
@@ -134,12 +144,15 @@ button {
         }
     }
 
-    .player__name--edit {
+    .player__name--edit,
+    .monster__name--edit,
+    .character__name--edit
+    {
       input {
         margin: 2rem 0rem .4rem 0rem;
         height: 4rem;
+        width: 12rem;
         font-size: 2rem;
-        width: 90%;
       }
 
       i {
@@ -147,6 +160,7 @@ button {
       }
     }
 
+    .player__control,
     .player__hit,
     .monster__hit,
     .player__heal,
@@ -161,6 +175,14 @@ button {
 
       &:hover {
         background-color: $red2;
+      }
+    }
+
+    .player__control {
+        background-color: $green;
+
+      &:hover {
+        background-color: $green2;
       }
     }
 
@@ -189,7 +211,7 @@ button {
       display: none;
 
       input {
-        width: 90%;
+        width: 5rem;
         height: 4rem;
         font-size: 2rem;
         color: $black;

@@ -2,17 +2,14 @@
   img.monster__thumb(src="{{thumb}}")
 .col-md-8
   .row
-  h2.monster__name='{{monster}}'
-  span.monster__name--edit
-    input.input__monster
-    i.glyphicon.glyphicon-check
+  h2.monster__name--locked='{{monster}}'
   .row
   .col-md-4
-    span.monster__stat(stat="initiative")='Initiative:'
-    span.monster__stat--value='{{initiative}}'
+    span.monster__stat--locked(stat="initiative")='Initiative:'
+    span.monster__stat--value--locked='{{initiative}}'
   .col-md-4
-    span.monster__stat(stat="damage")='Damage Taken:'
-    span.monster__stat--value='{{damage}}'
+    span.monster__stat--locked(stat="damage")='Damage Taken:'
+    span.monster__stat--value--locked='{{damage}}'
 .col-md-1
   .row
   button.glyphicon.glyphicon-fire.monster__hit(alt="Hit Me!")

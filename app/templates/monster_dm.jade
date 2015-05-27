@@ -9,19 +9,19 @@
   .row
     .col-md-4
       span.monster__stat.lead(stat="ac")='AC:'
-      span.monster__stat--valuet.lead='{{ac}}'
+      span.monster__stat--value.lead='{{ac}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.monster__statt.lead(stat="hp")='HP:'
-      span.monster__stat--valuet.lead='{{hp}}'
+      span.monster__stat.lead(stat="hp")='HP:'
+      span.monster__stat--value.lead='{{hp}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.monster__statt.lead(stat="speed")='Speed:'
-      span.monster__stat--valuet.lead='{{speed}}'
+      span.monster__stat--locked.lead(stat="speed")='Speed:'
+      span.monster__stat--value--locked.lead='{{speed}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
@@ -33,11 +33,11 @@
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.monster__stat(stat="damage")='Damage Taken:'
-      span.monster__stat--value='{{damage}}'
+      span.monster__stat--locked(stat="damage")='Damage Taken:'
+      span.monster__stat--value--locked='{{damage}}'
     .col-md-4
-      span.monster__stat(stat="health")='Current Health:'
-      span.monster__stat--value='{{health}}'
+      span.monster__stat--locked(stat="health")='Current Health:'
+      span.monster__stat--value--locked='{{health}}'
 .col-md-1
   .row
     button.glyphicon.glyphicon-fire.monster__hit(alt="Hit Me!")
