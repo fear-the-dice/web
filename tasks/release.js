@@ -1,6 +1,16 @@
 module.exports = function(grunt) {
     grunt.registerTask('release', [
-        'default',
+        'clean:wipe', 
+        'bower_concat', 
+        'copy',
+        'jade',
         'mustache_render:release',
-        'clean:release']);
+        'coffee', 
+        'jshint',
+        'uglify', 
+        'clean:js',
+        'sass', 
+        'cssmin',
+        'clean:css', 
+        ]);
 };
