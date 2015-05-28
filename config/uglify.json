@@ -15,5 +15,13 @@
     "files": {
       "public/js/main.min.js": "public/js/main.js"
     }
+  },
+  "production": {
+    "options": {
+      "sourceMap": false
+    },
+    "files": {
+      "public/js/main.min.js": "public/js/main.js"
+    }
   }
 }

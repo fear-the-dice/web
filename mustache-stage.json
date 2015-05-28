@@ -1,4 +1,4 @@
 {
     "server": "",
-    "socket": "http://fear-the-dice-socket.herokuapp.com/"
+    "socket": "http://keepiteasy.net:3000/"
 }

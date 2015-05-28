@@ -11,5 +11,13 @@
     "files": {
       "public/css/style.min.css": "public/css/style.css"
     }
+  },
+  "production": {
+    "options": {
+      "sourceMap": false
+    },
+    "files": {
+      "public/css/style.min.css": "public/css/style.css"
+    }
   }
 }

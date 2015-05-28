@@ -1,17 +1,19 @@
 module.exports = function(grunt) {
-    grunt.registerTask('default', [
+    grunt.registerTask('production', [
         'clean:wipe', 
         'bower_concat', 
         'copy',
         'jade',
-        'mustache_render:development',
-        'coffee:development', 
+        'mustache_render:production',
+        'coffee:production', 
         'jshint',
-        'sass:development', 
+        'sass:production', 
         'uglify:bower', 
-        'uglify:development', 
+        'uglify:production', 
         'cssmin',
         'clean:js',
         'clean:css', 
-        ]);
+        'clean:release'
+        ]
+    );
 };
