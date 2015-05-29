@@ -67,6 +67,17 @@ button {
   margin-top: 1rem;
 }
 
+.player__thumb {
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .sidebar__monster,
 .sidebar__player {
     font-size: 2rem;

@@ -31,6 +31,7 @@ $ ((app) ->
 
       # Player collection bindings
       app.Collections.Player.bind "add", (model) ->
+        console.log model
         PubSub.publish "PlayerCollection.add"
 
       app.Collections.Player.bind "change", () ->

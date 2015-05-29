@@ -7,7 +7,7 @@
   Templates: {}
   Players: []
   Config:
-    enviroment: 'production'
+    enviroment: 'local'
     templates_path: 'templates/'
     templates_type: 'html'
     socketio_server:
