@@ -1,19 +1,20 @@
-.container
-  .row.text-center
-    h1 Fear the Dice 
-    h2 The DM doesn't have it out for you... the dice do
-  .row.text-center
-    button.players__add_btn
-      | Add Player
-    button.monster__add_btn
-      | Add Monster
-    button.turn__next_btn
-      | Pass Turn 
-  .row
-    .col-md-3
-      h3='Monsters'
-      .monsters
-      h3='Players'
-      .players
-    .col-md-9
-      .game.dm-view
+nav.navbar.dm-navbar.navbar-fixed-top
+    .row.text-center
+        button.players__add_btn
+            | Add Player
+        button.monster__add_btn
+              | Add Monster
+        button.turn__next_btn
+            | Pass Turn 
+
+.container-fluid
+    .col-md-3.affix.sidebar
+        .row.sidebar-section
+            h3='Monsters'
+            .monsters
+        .row.sidebar-section
+            h3='Players'
+            .players
+
+    .col-md-9.col-md-offset-3.game.dm-view.affix
+        

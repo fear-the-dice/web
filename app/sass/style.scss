@@ -33,6 +33,36 @@ body {
   color: $white;
 }
 
+
+.dm-navbar {
+    margin-top: 17rem;
+}
+
+.game.dm-view,
+.sidebar {
+    top: 25rem;
+    bottom: 8rem;
+    overflow-y: scroll;
+
+    .sidebar-section {
+        height: 45%;
+        overflow-y: hidden;
+
+        .players,
+        .monsters {
+            height: 100%;
+            overflow-y: auto;
+        }
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 20px;
+    right: 0px;
+    left: 0px;
+}
+
 h1 {
     font-size: 8rem;
     text-align: center;
@@ -209,7 +239,6 @@ button {
       cursor: pointer;
       background-color: $red;
       color: $white;
-      width: 100%;
       margin: .4rem 0rem;
 
       &:hover {
