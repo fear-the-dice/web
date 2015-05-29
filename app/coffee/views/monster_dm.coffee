@@ -35,6 +35,7 @@ $ ((app) ->
       $stat.find(".monster__name").hide()
       $stat.find(".monster__name--edit input").val this.model.get "monster"
       $stat.find(".monster__name--edit").show()
+      $stat.find(".monster__name--edit input").focus()
 
     saveName: (e) ->
       $stat = $(e.currentTarget).parent().parent()
@@ -54,6 +55,7 @@ $ ((app) ->
 
       $stat.find(".monster__stat--edit input").val this.model.get stat
       $stat.find(".monster__stat--edit").show()
+      $stat.find(".monster__stat--edit input").focus()
 
     saveStat: (e) ->
       $stat = $(e.currentTarget).parent().parent()
@@ -76,6 +78,7 @@ $ ((app) ->
     heal: (e) ->
       this.$el.find(".monster__heal").hide()
       this.$el.find(".monster__heal--edit").show()
+      this.$el.find(".monster__heal--edit input").focus()
 
     saveHealing: (e) ->
       value = parseInt this.$el.find(".monster__heal--edit input").val()

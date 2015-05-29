@@ -64,6 +64,7 @@ $ ((app) ->
     hit: (e) ->
       this.$el.find(".monster__hit").hide()
       this.$el.find(".monster__hit--edit").show()
+      this.$el.find(".monster__hit--edit input").focus()
 
     saveDamage: (e) ->
       value = parseInt this.$el.find(".monster__hit--edit input").val()

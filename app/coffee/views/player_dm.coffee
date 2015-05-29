@@ -64,6 +64,7 @@ $ ((app) ->
       $stat.find(".character__name").hide()
       $stat.find(".character__name--edit input").val this.model.get "character"
       $stat.find(".character__name--edit").show()
+      $stat.find(".character__name--edit input").focus()
 
     saveCharacter: (e) ->
       $stat = $(e.currentTarget).parent().parent()
@@ -83,6 +84,7 @@ $ ((app) ->
       $stat.find(".player__stat--value").hide()
       $stat.find(".player__stat--edit input").val this.model.get stat
       $stat.find(".player__stat--edit").show()
+      $stat.find(".player__stat--edit input").focus()
 
     saveStat: (e) ->
       $stat = $(e.currentTarget).parent().parent()
@@ -105,6 +107,7 @@ $ ((app) ->
     healPlayer: (e) ->
       this.$el.find(".player__heal").hide()
       this.$el.find(".player__heal--edit").show()
+      this.$el.find(".player__heal--edit input").focus()
 
     saveHealing: (e) ->
       value = parseInt this.$el.find(".player__heal--edit input").val()
@@ -113,13 +116,13 @@ $ ((app) ->
       this.$el.find(".player__heal--edit").val 0
       this.$el.find(".player__heal").show()
 
-      stats = 
+      stats =
         damage: this.model.get("damage") - value
         health: this.model.get("health") + value
 
       stats.damage = if (stats.damage < 0) then 0 else stats.damage
 
-      this.model.set stats 
+      this.model.set stats
 
       this.reRender()
 
