@@ -21,7 +21,7 @@
       span.monster__stat--locked.lead(stat="speed")='Speed:'
       span.monster__stat--value--locked.lead='{{speed}}'
       span.monster__stat--edit
-        input.input__stat(type="number")
+        input.input__stat
         i.glyphicon.glyphicon-check
   .row
     .col-md-4
@@ -38,41 +38,41 @@
       span.monster__stat--value--locked='{{health}}'
   .row
     .col-md-4
-      span.monster__stat()='STR:'
-      span.monster__stat--value='18 (+1)'
+      span.monster__stat(stat="str")='STR:'
+      span.monster__stat--value='{{str}}'
       span.monster__stat--edit
-        input.input__stat(type="number")
+        input.input__stat
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.monster__stat()='DEX:'
-      span.monster__stat--value='18 (+1)'
+      span.monster__stat(stat="dex")='DEX:'
+      span.monster__stat--value='{{dex}}'
       span.monster__stat--edit
-        input.input__stat(type="number")
+        input.input__stat
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.monster__stat()='CON:'
-      span.monster__stat--value='18 (+1)'
+      span.monster__stat(stat="con")='CON:'
+      span.monster__stat--value='{{con}}'
       span.monster__stat--edit
-        input.input__stat(type="number")
+        input.input__stat
         i.glyphicon.glyphicon-check
   .row
     .col-md-4
-      span.monster__stat()='INT:'
-      span.monster__stat--value='18 (+1)'
+      span.monster__stat(stat="int")='INT:'
+      span.monster__stat--value='{{int}}'
       span.monster__stat--edit
-        input.input__stat(type="number")
+        input.input__stat
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.monster__stat()='WIS:'
-      span.monster__stat--value='18 (+1)'
+      span.monster__stat(stat="wis")='WIS:'
+      span.monster__stat--value='{{wis}}'
       span.monster__stat--edit
-        input.input__stat(type="number")
+        input.input__stat
         i.glyphicon.glyphicon-check
     .col-md-4
-      span.monster__stat()='CHA:'
-      span.monster__stat--value='18 (+1)'
+      span.monster__stat(stat="cha")='CHA:'
+      span.monster__stat--value='{{cha}}'
       span.monster__stat--edit
-        input.input__stat(type="number")
+        input.input__stat
         i.glyphicon.glyphicon-check
 .col-md-1
   .row
