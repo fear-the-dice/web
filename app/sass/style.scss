@@ -1,30 +1,32 @@
+$white: #FDFFFC; 
+$black: #000000;
+$black2: #111111;
+$grey: #2B2B2B;
+$blue: #011627;
+$red: #E71D36;
+$green: #2EC4B6;
+$yellow: #CC6C00;
+
 @font-face {
   font-family: 'Monthoers';
   src: url('fonts/monthoers-webfont.woff2') format('woff2'),
        url('fonts/monthoers-webfont.woff') format('woff'),
        url('fonts/monthoers-webfont.ttf')  format('truetype');
 }
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
 html {
   font-size:62.5%;
 }
-
-/*$red: #5d0000;*/
-/*$red2: #4a0000;*/
-/*$green: #08493d;*/
-/*$green2: #05332a;*/
-/*$orange: #7f2e00;*/
-
-$white: #FDFFFC; 
-$black: #000000;
-$black2: #111111;
-$grey: #B3B5B7;
-$grey2: #8f9092;
-$grey3: #43474c;
-$blue: #011627;
-$red: #E71D36;
-$green: #2EC4B6;
-$yellow: #FF9F1C;
-$yellow2: #66400B;
 
 body {
   font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
@@ -33,34 +35,11 @@ body {
   color: $white;
 }
 
-
-.dm-navbar {
-    margin-top: 17rem;
-}
-
-.game.dm-view,
-.sidebar {
-    top: 25rem;
-    bottom: 8rem;
-    overflow-y: scroll;
-
-    .sidebar-section {
-        height: 45%;
-        overflow-y: hidden;
-
-        .players,
-        .monsters {
-            height: 100%;
-            overflow-y: auto;
-        }
-    }
-}
-
-.footer {
-    position: fixed;
-    bottom: 20px;
-    right: 0px;
-    left: 0px;
+input {
+    font-size: 2rem;
+    height: 4rem;
+    width: 8rem;
+    color: $black;
 }
 
 h1 {
@@ -77,14 +56,13 @@ h3 {
 
 button {
   outline: 0rem;
-  height: 4rem;
+  height: 3.8rem;
   width: 10.25rem;
   font-size: 1.5rem;
   border-radius: 1rem;
   border-color: transparent;
   background-color: $white;
   color: $black;
-  margin: .5rem 0rem;
 
   &:hover {
     background-color: $black;
@@ -92,10 +70,97 @@ button {
   }
 }
 
-.game,
-.players,
-.monsters {
+nav {
+  padding: 2rem;
+  margin-bottom: 0px;
+
+  h1, h2 {
+    text-align: left;
+    margin-top: 0px;
+    margin-right: 2rem;
+    display: inline-block;
+  }
+}
+
+.table {
+  display: table;
+  vertical-align: bottom;
+}
+
+.table-cell {
+  display: table-cell;
+  float: none;
+}
+
+.sidebar-section,
+.game-header {
+  padding-left: 4rem;
   margin-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  border-bottom: $grey 1px solid;
+}
+
+.sidebar-section {
+  padding-left: 1rem;
+}
+
+.game-header {
+  padding-right: 7rem;
+}
+
+.dm-navbar {
+    top: 12rem;
+}
+
+.base {
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    top: 12rem;
+    right: 0;
+    bottom: 3.5rem;
+    left: 0;
+    border-top: $grey 1px solid;
+    border-bottom: $grey 1px solid;
+
+    .affix {
+      top: 18rem;
+      bottom: 6rem;
+      overflow-y: scroll;
+      width: inherit;
+    }
+}
+
+.sidebar,
+.game-wrapper {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  overflow: hidden;
+}
+
+.sidebar {
+  left: .5rem;
+  width: 25%;
+  border-right: $grey 1px solid;
+
+  .monsters {
+    height: 98%;
+  }
+
+}
+
+.game-wrapper {
+  right: 0px;
+  width: 75%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
 }
 
 .player__thumb {
@@ -163,6 +228,7 @@ button {
       -moz-transform: scale(1);
       -webkit-transform: scale(1);
       transform: scale(1);
+      margin-left: 2rem;
     }
 
     &.dead {
@@ -200,13 +266,6 @@ button {
     .monster__stat--edit {
         display: none;
 
-        input {
-            font-size: 2rem;
-            height: 4rem;
-            width: 8rem;
-            color: $black;
-        }
-
         i {
             cursor: pointer;
             margin-left: .5rem;
@@ -219,9 +278,7 @@ button {
     {
       input {
         margin: 2rem 0rem .4rem 0rem;
-        height: 4rem;
         width: 12rem;
-        font-size: 2rem;
       }
 
       i {
@@ -286,8 +343,6 @@ button {
 
       input {
         width: 5rem;
-        height: 4rem;
-        font-size: 2rem;
       }
 
       i {

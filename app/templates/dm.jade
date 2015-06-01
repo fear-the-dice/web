@@ -1,20 +1,32 @@
-nav.navbar.dm-navbar.navbar-fixed-top
-    .row.text-center
-        button.players__add_btn
-            | Add Player
-        button.monster__add_btn
-              | Add Monster
-        button.turn__next_btn
-            | Pass Turn 
+.sidebar
+  .row.sidebar-section
+    .col-md-4
+      h3='Monsters'
+    .col-md-8.text-right
+      button.monster__add_btn
+        | New Monster
+  .row.affix
+    .monsters
 
-.container-fluid
-    .col-md-3.affix.sidebar
-        .row.sidebar-section
-            h3='Monsters'
-            .monsters
-        .row.sidebar-section
-            h3='Players'
-            .players
+  //-.row.sidebar-section
+    //-.row
+      //-.col-md-4
+        //-h3='Players'
+      //-.col-md-8.text-right
+        //-button.players__add_btn
+          //-| Add Player
+    //-.row
+      //-.players
 
-    .col-md-9.col-md-offset-3.game.dm-view.affix
-        
+.game-wrapper
+  .row.text-left.game-header
+    .col-md-4
+      h3='The Battle'
+    .col-md-8.text-right
+      button.players__add_btn
+        | Add Player
+      button.turn__next_btn
+        | Pass Turn 
+      button
+        | end Combat
+  .game.dm-view.row.affix

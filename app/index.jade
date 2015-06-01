@@ -1,27 +1,32 @@
 doctype html
 html(lang="en")
   head
-    title Fear the Dice! - A 5th Edition D&D Combat Tool
-    meta(content="A 5th Edition D&D Combat Tool", name="description")
-    link(rel="shortcut icon", href="http://fearthedice.com/favicon.ico")
+  title Fear the Dice! - A 5th Edition D&D Combat Tool
+  meta(content="A 5th Edition D&D Combat Tool", name="description")
+  link(rel="shortcut icon", href="http://fearthedice.com/favicon.ico")
 
-    link(rel="stylesheet", type="text/css", href="{{server}}css/vendor/_bower.min.css")
-    link(rel="stylesheet", type="text/css", href="{{server}}css/style.min.css")
+  link(rel="stylesheet", type="text/css", href="{{server}}css/vendor/_bower.min.css")
+  link(rel="stylesheet", type="text/css", href="{{server}}css/style.min.css")
 
   body
-    nav.navbar.navbar-fixed-top
-        .container.text-center
-            h1 Fear the Dice! 
-            h2 The DM doesn't have it out for you... the dice do
+    nav.navbar.navbar-fixed-top.table
+      .row.table-cell
+        h1 Fear the Dice! 
+        h2 The DM doesn't have it out for you... the dice do
 
-    .base
+  .base
 
-    footer.footer
-        .container.text-center
-            p.text-muted This tool is protected by the GNU General Public License v2.
-            p.text-muted Copyright Jeffrey Hann 2015
+  footer.footer
+    .container.text-center
+      p.text-muted 
+        This tool is protected by the 
+        a(href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html") GNU General Public License v2.
+        &nbsp; | Copyright 
+        a(href="http://jeffreyhann.ca") Jeffrey Hann 2015
+        &nbsp; | Fork us on &nbsp;
+        a(href="https://github.com/fear-the-dice") GitHub
 
-    script(src="{{socket}}socket.io/socket.io.js")
-    script(src="{{server}}js/vendor/_bower.min.js")
-    script(src="{{server}}js/main.min.js")
+  script(src="{{socket}}socket.io/socket.io.js")
+  script(src="{{server}}js/vendor/_bower.min.js")
+  script(src="{{server}}js/main.min.js")
 
