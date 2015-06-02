@@ -11,5 +11,6 @@ module.exports = function(grunt) {
         'cssmin',
         'clean:js',
         'clean:css', 
+        'shell:staging'
         ]);
 };

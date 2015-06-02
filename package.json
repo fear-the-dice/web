@@ -34,6 +34,7 @@
   },
   "homepage": "http://fearthedice.com",
   "devDependencies": {
+    "grunt-shell": "^1.1.2",
     "grunt-text-replace": "^0.4.0"
   }
 }
