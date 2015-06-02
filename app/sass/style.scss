@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
   font-size: .8rem;
   background-color: $black2;
   color: $white;
@@ -48,7 +48,8 @@ button {
 }
 
 .navbar {
-  padding: 2rem 2rem 2rem .2rem;
+  font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+  padding: 1rem 1rem 0rem .2rem;
   margin-bottom: 0px;
 
   h1, h2 {
@@ -103,6 +104,8 @@ button {
 }
 
 .footer {
+    font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 1.5rem;
     position: fixed;
     bottom: 0px;
     right: 0px;
@@ -154,7 +157,7 @@ button {
     .player__stat,
     .player__stat--locked {
         font-weight: 600;
-        margin-right: .2rem;
+        margin-right: 1rem;
         cursor: pointer;
         display: inline-block;
         padding: .5rem 0rem;
@@ -165,7 +168,7 @@ button {
     .character__name,
     .player__stat--value {
         cursor: pointer;
-        margin: 0;
+        margin: 0 1rem 0 0;
     }
 
     .monster__stat--locked,

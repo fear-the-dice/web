@@ -1,7 +1,7 @@
 .base {
   .sidebar {
     .affix {
-      top: 15rem;
+      top: 11rem;
       width: 44rem;
       bottom: 4rem;
     }
@@ -32,20 +32,15 @@
 
 .sidebar__monster,
 .sidebar__player {
-    font-size: 2rem;
+    font-size: 1.25rem;
     margin: .2rem;
     padding: 1rem;
     background-color: $blue;
     color: $white;
     cursor: pointer;
 
-    .sidebar__name,
-    .sidebar__stat {
-      font-weight: 600;
-    }
-
     .sidebar__name {
-      font-size: 2.5rem;
+      font-weight: 600;
     }
 
     .sidebar__stat--value {
@@ -53,7 +48,7 @@
     }
 
     i {
-      font-size: 3rem;
+      font-size: 2rem;
 
       .glyphicon-remove {
         color: $red;

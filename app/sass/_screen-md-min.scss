@@ -1,15 +1,15 @@
 @media(min-width:992px) {
   body {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   h1 {
-      font-size: 6rem;
+      font-size: 4rem;
   }
 
   h2,
   h3 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .navbar {
@@ -24,7 +24,7 @@
   }
 
   .base {
-    top: 9rem;
+    top: 6rem;
   }
 
   .table {
@@ -39,11 +39,7 @@
 
   .monster,
   .player {
-    font-size: 2rem;
-  }
-
-  .lead {
-    font-size: 2.25rem;
+    font-size: 1.25rem;
   }
 }
 

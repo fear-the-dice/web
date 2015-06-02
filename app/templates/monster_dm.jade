@@ -17,20 +17,20 @@
       button.glyphicon.glyphicon-remove.monster__delete(alt="Delete Me!")
   .row
     .col-xs-2
-      span.monster__stat.lead(stat="ac")='AC:'
-      span.monster__stat--value.lead='{{ac}}'
+      span.monster__stat(stat="ac")='AC:'
+      span.monster__stat--value='{{ac}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
     .col-xs-2
-      span.monster__stat.lead(stat="hp")='HP:'
-      span.monster__stat--value.lead='{{hp}}'
+      span.monster__stat(stat="hp")='HP:'
+      span.monster__stat--value='{{hp}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
     .col-xs-2
-      span.monster__stat--locked.lead(stat="speed")='Speed:'
-      span.monster__stat--value--locked.lead='{{speed}}'
+      span.monster__stat--locked(stat="speed")='Speed:'
+      span.monster__stat--value--locked='{{speed}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
