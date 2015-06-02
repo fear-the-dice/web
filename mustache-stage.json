@@ -1,4 +1,5 @@
 {
+    "cdn": "http://cloud.keepiteasy.net/fear-the-dice/",
     "server": "",
     "socket": "http://keepiteasy.net:1347/"
 }

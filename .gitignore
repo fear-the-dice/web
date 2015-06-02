@@ -1,6 +1,8 @@
 .DS_Store
 .lvimrc
+*.sh
 index.mustache
+app/coffee/config.coffee
 
 node_modules/
 bower_components/

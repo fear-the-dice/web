@@ -1,0 +1,49 @@
+@media(min-width:992px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+      font-size: 6rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 3rem;
+  }
+
+  .navbar {
+    h1, h2 {
+      text-align: left;
+      display: inline-block;
+    }
+  }
+
+  button {
+    font-size: 1.5rem;
+  }
+
+  .base {
+    top: 9rem;
+  }
+
+  .table {
+    display: table;
+    vertical-align: bottom;
+  }
+
+  .table-cell {
+    display: table-cell;
+    float: none;
+  }
+
+  .monster,
+  .player {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 2.25rem;
+  }
+}
+

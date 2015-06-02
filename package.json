@@ -32,5 +32,8 @@
   "scripts": {
     "build": "grunt release"
   },
-  "homepage": "http://fearthedice.com"
+  "homepage": "http://fearthedice.com",
+  "devDependencies": {
+    "grunt-text-replace": "^0.4.0"
+  }
 }
