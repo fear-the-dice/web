@@ -1,0 +1,57 @@
+.base {
+  .sidebar {
+    .affix {
+      top: 11rem;
+      width: 44rem;
+      bottom: 4rem;
+    }
+  }
+}
+
+.sidebar {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  left: .5rem;
+  width: 25%;
+  border-right: $grey 1px solid;
+
+  .monsters {
+    height: 98%;
+  }
+}
+
+.sidebar-section {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  border-bottom: $grey 1px solid;
+}
+
+.sidebar__monster,
+.sidebar__player {
+    font-size: 1.25rem;
+    margin: .2rem;
+    padding: 1rem;
+    background-color: $blue;
+    color: $white;
+    cursor: pointer;
+
+    .sidebar__name {
+      font-weight: 600;
+    }
+
+    .sidebar__stat--value {
+      margin-right: 1rem;
+    }
+
+    i {
+      font-size: 2rem;
+
+      .glyphicon-remove {
+        color: $red;
+      }
+    }
+}

@@ -18,7 +18,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-mustache-render');
+    grunt.loadNpmTasks('grunt-shell');
 
     var configs = require('load-grunt-configs')(grunt);
     grunt.initConfig(configs);

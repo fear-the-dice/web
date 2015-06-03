@@ -1,89 +1,85 @@
-.col-md-11
+.col-xs-12
   .row
-    h2.monster__name='{{monster}}'
-    span.monster__name--edit
-      input.input__monster
-      i.glyphicon.glyphicon-check
+    .col-xs-4.col-md-6.text-left
+      h2.monster__name='{{monster}}'
+      span.monster__name--edit
+        input.input__monster
+        i.glyphicon.glyphicon-check
+    .col-xs-8.col-md-6.text-right
+      button.glyphicon.glyphicon-fire.monster__hit(alt="Hit Me!")
+      span.monster__hit--edit
+        input.input__hit(type="number", value="0")
+        i.glyphicon.glyphicon-check
+      button.glyphicon.glyphicon-heart.monster__heal(alt="Heal Me!")
+      span.monster__heal--edit
+        input.input__heal(type="number", value="0")
+        i.glyphicon.glyphicon-check
+      button.glyphicon.glyphicon-remove.monster__delete(alt="Delete Me!")
   .row
-    .col-md-4
-      span.monster__stat.lead(stat="ac")='AC:'
-      span.monster__stat--value.lead='{{ac}}'
+    .col-xs-2
+      span.monster__stat(stat="ac")='AC:'
+      span.monster__stat--value='{{ac}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
-    .col-md-4
-      span.monster__stat.lead(stat="hp")='HP:'
-      span.monster__stat--value.lead='{{hp}}'
+    .col-xs-2
+      span.monster__stat(stat="hp")='HP:'
+      span.monster__stat--value='{{hp}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
-    .col-md-4
-      span.monster__stat--locked.lead(stat="speed")='Speed:'
-      span.monster__stat--value--locked.lead='{{speed}}'
+    .col-xs-2
+      span.monster__stat--locked(stat="speed")='Speed:'
+      span.monster__stat--value--locked='{{speed}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
-  .row
-    .col-md-4
+    .col-xs-2
       span.monster__stat(stat="initiative")='Initiative:'
       span.monster__stat--value='{{initiative}}'
       span.monster__stat--edit
         input.input__stat(type="number")
         i.glyphicon.glyphicon-check
-    .col-md-4
+    .col-xs-2
       span.monster__stat--locked(stat="damage")='Damage Taken:'
       span.monster__stat--value--locked='{{damage}}'
-    .col-md-4
+    .col-xs-2
       span.monster__stat--locked(stat="health")='Current Health:'
       span.monster__stat--value--locked='{{health}}'
   .row
-    .col-md-4
+    .col-xs-2
       span.monster__stat(stat="str")='STR:'
       span.monster__stat--value='{{str}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
-    .col-md-4
+    .col-xs-2
       span.monster__stat(stat="dex")='DEX:'
       span.monster__stat--value='{{dex}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
-    .col-md-4
+    .col-xs-2
       span.monster__stat(stat="con")='CON:'
       span.monster__stat--value='{{con}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
-  .row
-    .col-md-4
+    .col-xs-2
       span.monster__stat(stat="int")='INT:'
       span.monster__stat--value='{{int}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
-    .col-md-4
+    .col-xs-2
       span.monster__stat(stat="wis")='WIS:'
       span.monster__stat--value='{{wis}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
-    .col-md-4
+    .col-xs-2
       span.monster__stat(stat="cha")='CHA:'
       span.monster__stat--value='{{cha}}'
       span.monster__stat--edit
         input.input__stat
         i.glyphicon.glyphicon-check
-.col-md-1
-  .row
-    button.glyphicon.glyphicon-fire.monster__hit(alt="Hit Me!")
-    span.monster__hit--edit
-      input.input__hit(type="number", value="0")
-      i.glyphicon.glyphicon-check
-  .row
-    button.glyphicon.glyphicon-heart.monster__heal(alt="Heal Me!")
-    span.monster__heal--edit
-      input.input__heal(type="number", value="0")
-      i.glyphicon.glyphicon-check
-  .row
-    button.glyphicon.glyphicon-remove.monster__delete(alt="Delete Me!")

@@ -1,4 +1,5 @@
 {
+    "cdn": "",
     "server": "",
     "socket": "http://localhost:1347/"
 }

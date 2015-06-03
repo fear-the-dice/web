@@ -1,9 +1,9 @@
 module.exports = function(grunt) {
-    grunt.registerTask('default', [
+    grunt.registerTask('staging', [
         'clean:wipe', 
         'jade',
-        'mustache_render:development',
-        'replace:local',
+        'mustache_render:staging',
+        'replace:staging',
         'coffee:development', 
         'jshint',
         'sass:development', 
@@ -11,6 +11,7 @@ module.exports = function(grunt) {
         'cssmin',
         'clean:js',
         'clean:css', 
-        'clean:mustache',
+        'clean:mustache', 
+        'shell:staging'
         ]);
 };

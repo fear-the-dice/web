@@ -1,0 +1,26 @@
+$white: #FDFFFC; 
+$black: #000000;
+$black2: #111111;
+$grey: #2B2B2B;
+$blue: #011627;
+$red: #E71D36;
+$green: #2EC4B6;
+$yellow: #CC6C00;
+
+@font-face {
+  font-family: 'Monthoers';
+  src: url('http://cloud.keepiteasy.net/fear-the-dice/css/fonts/monthoers-webfont.woff2') format('woff2'),
+       url('http://cloud.keepiteasy.net/fear-the-dice/css/fonts/monthoers-webfont.woff') format('woff'),
+       url('http://cloud.keepiteasy.net/fear-the-dice/css/fonts/monthoers-webfont.ttf')  format('truetype');
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

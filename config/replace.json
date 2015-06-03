@@ -1,0 +1,26 @@
+{
+  "production": {
+    "src": ["app/coffee/config.coffee.example"],
+    "dest": "app/coffee/config.coffee",
+    "replacements": [{
+      "from": "ENVGOESHERE",
+      "to": "production"
+    }]
+  },
+  "staging": {
+    "src": ["app/coffee/config.coffee.example"],
+    "dest": "app/coffee/config.coffee",
+    "replacements": [{
+      "from": "ENVGOESHERE",
+      "to": "staging"
+    }]
+  },
+  "local": {
+    "src": ["app/coffee/config.coffee.example"],
+    "dest": "app/coffee/config.coffee",
+    "replacements": [{
+      "from": "ENVGOESHERE",
+      "to": "local"
+    }]
+  }
+}
