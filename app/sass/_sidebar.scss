@@ -2,7 +2,7 @@
   .sidebar {
     .affix {
       top: 11rem;
-      width: 44rem;
+      width: 34rem;
       bottom: 4rem;
     }
   }
@@ -54,4 +54,26 @@
         color: $red;
       }
     }
+}
+
+/* XL devices (large desktops, 1400px and up) */
+@media(min-width:1400px) {
+  .base {
+    .sidebar {
+      .affix {
+        width: 37rem;
+      }
+    }
+  }
+}
+
+/* Huge devices (large desktops, 1660px and up) */
+@media(min-width:1660px) {
+  .base {
+    .sidebar {
+      .affix {
+        width: 43rem;
+      }
+    }
+  }
 }

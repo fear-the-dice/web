@@ -2,11 +2,12 @@ doctype html
 html(lang="en")
   head
   title Fear the Dice! - A 5th Edition D&D Combat Tool
+  link(rel="dns-prefetch", href="http://cdn.keepiteasy.net")
   meta(content="A 5th Edition D&D Combat Tool", name="description")
   link(rel="shortcut icon", href="http://fearthedice.com/favicon.ico")
 
-  link(rel="stylesheet", type="text/css", href="{{cdn}}css/vendor/_bower.min.css")
-  link(rel="stylesheet", type="text/css", href="{{server}}css/style.min.css")
+  link(rel="stylesheet", type="text/css", href="{{cdn}}css/vendor/_bower.min.css?v={{version}}")
+  link(rel="stylesheet", type="text/css", href="{{server}}css/style.min.css?v={{version}}")
 
   body
     nav.navbar.navbar-fixed-top.table
@@ -27,5 +28,5 @@ html(lang="en")
         a(href="https://github.com/fear-the-dice") GitHub
 
   script(src="{{socket}}socket.io/socket.io.js")
-  script(src="{{cdn}}js/vendor/_bower.min.js")
+  script(src="{{cdn}}js/vendor/_bower.min.js?v={{version}}")
   script(src="{{server}}js/main.min.js")

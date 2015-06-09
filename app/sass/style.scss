@@ -321,5 +321,10 @@ button {
     background-color: $yellow;
 }
 
+/* Small devices (desktops, 768px and up) */
+@import 'screen-sm-min.scss';
 /* Medium devices (desktops, 992px and up) */
 @import 'screen-md-min.scss';
+/* Large devices (desktops, 1200px and up) */
+/* XL devices (large desktops, 1400px and up) */
+/* Huge devices (large desktops, 1660px and up) */
