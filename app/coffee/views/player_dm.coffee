@@ -88,7 +88,6 @@ $ ((app) ->
 
     saveStat: (e) ->
       $stat = $(e.currentTarget).parent().parent()
-      console.log $stat
       stat = $stat.find(".player__stat").attr "stat"
 
       value = parseInt $stat.find(".player__stat--edit input").val()

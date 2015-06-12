@@ -8,6 +8,16 @@ $ ((app) ->
     s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4()
 
+
+  $.ajax
+    url: "http://localhost:3500"
+    async: false
+    dataType: "text"
+    crossDomain: true
+    success: (data) ->
+      app.Token = data
+      data
+
   # http://naleid.com/blog/2012/10/29/overriding-backbone-js-sync-to-allow-cross-origin-resource-sharing-cors/
   proxiedSync = Backbone.sync
 
@@ -18,11 +28,14 @@ $ ((app) ->
     if !options.crossDomain
       options.crossDomain = true
 
+    options.beforeSend = (xhr) ->
+      xhr.setRequestHeader('Authorization', 'Bearer ' + app.Token)
+
     proxiedSync method, model, options
 
   # Define array of all template files
-  templates = new Array "player", "monster", "base", "dm", "player_dm", "monster_dm",
-    "player_sidebar", "monster_sidebar"
+  templates = new Array "player", "monster", "base", "dm",
+    "player_dm", "monster_dm","player_sidebar", "monster_sidebar"
 
   # Load all template files into LKT.Templates
   _.each templates, (template) ->
