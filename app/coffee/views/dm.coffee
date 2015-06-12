@@ -55,26 +55,29 @@ $ ((app) ->
       app.Collections.Player.sort()
 
     addPlayer: (e) ->
-      model = new app.Models.Player()
-      model.set "playing", true
-      new this.playerView model
-      app.socket.emit "NewPlayer", JSON.stringify model.toJSON()
-      app.Collections.Player.push model
-      app.Collections.Player.sort()
-      app.Collections.Game.push model
-      model.save()
-      model
+      _.each app.Collections.Player.models, $.proxy((member) ->
+        member.set "playing", true
+        new this.playerView member
+        app.Collections.Game.push member
+        app.socket.emit "NewPlayer", JSON.stringify member.toJSON()
+      , this)
+
+    #addPlayer: (e) ->
+      #model = new app.Models.Player()
+      #model.set "playing", true
+      #new this.playerView model
+      #app.socket.emit "NewPlayer", JSON.stringify model.toJSON()
+      #app.Collections.Player.push model
+      #app.Collections.Player.sort()
+      #app.Collections.Game.push model
+      #model.save()
+      #model
 
     addMonster: (e) ->
       model = new app.Models.Monster()
       view = new app.Views.NewMonster model
       $(".base").prepend view.$el
       view.postRender()
-      #app.socket.emit "AddMonster", JSON.stringify model.toJSON()
-      #app.Collections.Monster.push model
-      #app.Collections.Monster.sort()
-      #app.Collections.Game.push model
-      #model.save()
       model
 
   this

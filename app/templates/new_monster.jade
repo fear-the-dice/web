@@ -5,60 +5,44 @@
     .col-md-12.text-center
       span.monster__name--edit
         input.input__monster(value='{{monster}}')
-        i.glyphicon.glyphicon-check
   .row
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="ac")='AC:'
       span.monster__stat--edit
         input.input__stat(stat="ac", type="number", value='{{ac}}')
-        i.glyphicon.glyphicon-check
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="hp")='HP:'
       span.monster__stat--edit
         input.input__stat(stat="hp", type="number", value='{{hp}}')
-        i.glyphicon.glyphicon-check
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="speed")='Speed:'
       span.monster__stat--edit
         input.input__stat(stat="speed", value='{{speed}}')
-        i.glyphicon.glyphicon-check
-    .col-xs-3
-      span.monster__stat(stat="initiative")='Initiative:'
-      span.monster__stat--edit
-        input.input__stat(stat="initiative", type="number", value='{{initiative}}')
-        i.glyphicon.glyphicon-check
-  .row
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="str")='STR:'
       span.monster__stat--edit
         input.input__stat(stat="str", value='{{str}}')
-        i.glyphicon.glyphicon-check
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="dex")='DEX:'
       span.monster__stat--edit
         input.input__stat(stat="dex", value='{{dex}}')
-        i.glyphicon.glyphicon-check
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="con")='CON:'
       span.monster__stat--edit
         input.input__stat(stat="con", value='{{con}}')
-        i.glyphicon.glyphicon-check
-    .col-xs-3
+  .row
+    .col-xs-2
       span.monster__stat(stat="int")='INT:'
       span.monster__stat--edit
         input.input__stat(stat="int", value='{{int}}')
-        i.glyphicon.glyphicon-check
-  .row
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="wis")='WIS:'
       span.monster__stat--edit
         input.input__stat(stat="wis", value='{{wis}}')
-        i.glyphicon.glyphicon-check
-    .col-xs-3
+    .col-xs-2
       span.monster__stat(stat="cha")='CHA:'
       span.monster__stat--edit
         input.input__stat(stat="cha", value='{{cha}}')
-        i.glyphicon.glyphicon-check
-.col-xs-12.text-center
-  button.new-monster__save.glyphicon.glyphicon-floppy-save
-  button.new-monster__save.glyphicon.glyphicon-remove
+    .col-xs-6.text-center
+      button.new-monster__save.glyphicon.glyphicon-floppy-save
+      button.new-monster__save.glyphicon.glyphicon-remove

@@ -7,7 +7,7 @@
       "app/sass/**/*.scss"
     ],
     "tasks": [
-      "sass",
+      "sass:development",
       "cssmin:development",
       "clean:css"
     ]
@@ -20,7 +20,7 @@
       "app/coffee/**/*.coffee"
     ],
     "tasks": [
-      "coffee",
+      "coffee:development",
       "jshint",
       "uglify:development",
       "clean:js"
@@ -34,7 +34,7 @@
       "app/**/*.jade"
     ],
     "tasks": [
-      "jade",
+      "jade:development",
       "mustache_render:development"
     ]
   }
