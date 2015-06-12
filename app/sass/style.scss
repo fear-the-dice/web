@@ -31,6 +31,31 @@ h3 {
   display: inline-block;
 }
 
+.new-monster {
+  z-index: 9999;
+  background: $yellow;
+  top: 50%;
+  width: 100%;
+  clear: both;
+  position: absolute;
+  color: $black;
+  margin-top: -10rem;
+
+  .monster__stat {
+    font-size: 2rem;
+  }
+}
+
+.overlay {
+  position: absolute;
+  display: block;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: $black;
+}
+
 button {
   outline: 0rem;
   height: 3rem;

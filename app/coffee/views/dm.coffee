@@ -67,13 +67,14 @@ $ ((app) ->
 
     addMonster: (e) ->
       model = new app.Models.Monster()
-      model.set "playing", true
-      new this.monsterView model
-      app.socket.emit "NewMonster", JSON.stringify model.toJSON()
-      app.Collections.Monster.push model
-      app.Collections.Monster.sort()
-      app.Collections.Game.push model
-      model.save()
+      view = new app.Views.NewMonster model
+      $(".base").prepend view.$el
+      view.postRender()
+      #app.socket.emit "AddMonster", JSON.stringify model.toJSON()
+      #app.Collections.Monster.push model
+      #app.Collections.Monster.sort()
+      #app.Collections.Game.push model
+      #model.save()
       model
 
   this
