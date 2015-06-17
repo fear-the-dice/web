@@ -1,86 +1,160 @@
+@import 'init';
+@import 'sidebar';
+
 html {
   font-size:62.5%;
 }
 
-$white: #FFFFFF;
-$black: #000000;
-$black2: #07090B;
-$grey: #B3B5B7;
-$grey2: #8f9092;
-$grey3: #43474c;
-$darkBlue: #262d37;
-$red: #5d0000;
-$red2: #4a0000;
-$green: #08493d;
-$green2: #05332a;
-$orange: #7f2e00;
-
 body {
-  font-family: "arial", "helvetica", "sans-serif";
-  font-size: 1.2rem;
-  background-color: $darkBlue;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: .8rem;
+  background-color: $black2;
   color: $white;
 }
 
+input {
+    font-size: 2rem;
+    height: 4rem;
+    width: 8rem;
+    color: $black;
+}
+
 h1 {
+    font-size: 4rem;
     text-align: center;
 }
 
 h2,
 h3 {
+  font-size: 2rem;
   margin: 0rem 1rem;
   display: inline-block;
 }
 
-button {
-  outline: 0rem;
+.new-monster {
+  z-index: 9999;
+  background: $yellow;
+  top: 50%;
+  width: 100%;
+  clear: both;
+  position: absolute;
   color: $black;
-  height: 4rem;
-  width: 10.25rem;
-  font-size: 1.5rem;
-  border-radius: 1rem;
-  border-color: transparent;
-  background-color: $grey;
-  margin: .5rem 0rem;
+  margin-top: -10rem;
 
-  &:hover {
-    background-color: $grey2;
+  .monster__stat {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 }
 
-.game,
-.players,
-.monsters {
-  margin-top: 1rem;
+.overlay {
+  position: absolute;
+  display: block;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: $black;
 }
 
-.sidebar__monster,
-.sidebar__player {
-    margin: .2rem;
-    padding: 1rem;
-    background-color: $grey3;
-    color: $grey;
-    cursor: pointer;
+button {
+  outline: 0rem;
+  height: 3rem;
+  width: 3.25rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  border-color: transparent;
+  background-color: $white;
+  color: $black;
 
-    .sidebar__name,
-    .sidebar__stat {
-      font-weight: 600;
-    }
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
+}
 
-    .sidebar__stat--value {
-      margin-right: 1rem;
-    }
+.navbar {
+  font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+  padding: 1rem 1rem 0rem .2rem;
+  margin-bottom: 0px;
 
-    i {
-      font-size: 3rem;
+  h1, h2 {
+    text-align: center;
+    margin-top: 0px;
+    margin-right: 2rem;
+    display: block;
+  }
+}
+
+.game-header {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 6.5rem;
+  padding-left: 3.8rem;
+  border-bottom: $grey 1px solid;
+}
+
+.dm-navbar {
+    top: 12rem;
+}
+
+.base {
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    top: 12rem;
+    right: 0;
+    bottom: 3.5rem;
+    left: 0;
+    border-top: $grey 1px solid;
+    border-bottom: $grey 1px solid;
+
+    .affix {
+      top: 18rem;
+      bottom: 6rem;
+      overflow-y: scroll;
+      width: inherit;
     }
+}
+
+.game-wrapper {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  overflow: hidden;
+}
+
+.game-wrapper {
+  right: 0px;
+  width: 75%;
+}
+
+.footer {
+    font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 1.5rem;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+.player__thumb {
+  width: 200px;
+  height: 140px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .monster,
 .player {
-    padding: 1rem;
-    background-color: $grey3;
-    color: $grey;
+    font-size: 1.6rem;
+    padding: 2rem;
+    background-color: $blue;
+    color: $white;
     display: none;
     -moz-transform: scale(0.9);
     -webkit-transform: scale(0.9);
@@ -89,10 +163,15 @@ button {
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 
+    .lead {
+      margin-bottom: 0px;
+    }
+
     &.turn {
       -moz-transform: scale(1);
       -webkit-transform: scale(1);
       transform: scale(1);
+      margin-left: 2rem;
     }
 
     &.dead {
@@ -104,7 +183,7 @@ button {
     .player__stat,
     .player__stat--locked {
         font-weight: 600;
-        margin-right: .2rem;
+        margin-right: 1rem;
         cursor: pointer;
         display: inline-block;
         padding: .5rem 0rem;
@@ -115,6 +194,7 @@ button {
     .character__name,
     .player__stat--value {
         cursor: pointer;
+        margin: 0 1rem 0 0;
     }
 
     .monster__stat--locked,
@@ -130,16 +210,8 @@ button {
     .monster__stat--edit {
         display: none;
 
-        input {
-            font-size: 2rem;
-            height: 4rem;
-            width: 8rem;
-            color: $black;
-        }
-
         i {
             cursor: pointer;
-            color: $grey;
             margin-left: .5rem;
         }
     }
@@ -150,9 +222,7 @@ button {
     {
       input {
         margin: 2rem 0rem .4rem 0rem;
-        height: 4rem;
         width: 12rem;
-        font-size: 2rem;
       }
 
       i {
@@ -169,12 +239,12 @@ button {
     .player__delete {
       cursor: pointer;
       background-color: $red;
-      color: $grey;
-      width: 100%;
+      color: $white;
       margin: .4rem 0rem;
 
       &:hover {
-        background-color: $red2;
+        background-color: $white;
+        color: $red;
       }
     }
 
@@ -182,25 +252,30 @@ button {
         background-color: $green;
 
       &:hover {
-        background-color: $green2;
+        background-color: $white;
+        color: $green;
       }
     }
 
     .monster__heal,
     .player__heal {
       background-color: $green;
+      color: $white;
 
       &:hover {
-        background-color: $green2;
+        background-color: $white;
+        color: $green;
       }
     }
 
     .monster__delete,
     .player__delete {
-      background-color: $black2;
+      background-color: $black;
+      color: $white;
 
       &:hover {
-        background-color: $black;
+        background-color: $white;
+        color: $black;
       }
     }
 
@@ -212,14 +287,10 @@ button {
 
       input {
         width: 5rem;
-        height: 4rem;
-        font-size: 2rem;
-        color: $black;
       }
 
       i {
           cursor: pointer;
-          color: $grey;
           font-size: 2rem;
           margin-left: .5rem;
       }
@@ -273,5 +344,13 @@ button {
 }
 
 .monster {
-    background-color: $orange;
+    background-color: $yellow;
 }
+
+/* Small devices (desktops, 768px and up) */
+@import 'screen-sm-min.scss';
+/* Medium devices (desktops, 992px and up) */
+@import 'screen-md-min.scss';
+/* Large devices (desktops, 1200px and up) */
+/* XL devices (large desktops, 1400px and up) */
+/* Huge devices (large desktops, 1660px and up) */

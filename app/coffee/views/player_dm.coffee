@@ -3,7 +3,7 @@ $ ((app) ->
     events:
       "click .player__stat": "editStat"
       "click .player__stat--value": "editStat"
-      "click .player__stat--edit .glyphicon-check": "saveStat"
+      "click .player__stat--edit .glyphicon-check": "saveStatEvent"
 
       "click .character__name": "editCharacter"
       "click .character__name--edit .glyphicon-check": "saveCharacter"
@@ -64,6 +64,7 @@ $ ((app) ->
       $stat.find(".character__name").hide()
       $stat.find(".character__name--edit input").val this.model.get "character"
       $stat.find(".character__name--edit").show()
+      $stat.find(".character__name--edit input").focus()
 
     saveCharacter: (e) ->
       $stat = $(e.currentTarget).parent().parent()
@@ -83,13 +84,28 @@ $ ((app) ->
       $stat.find(".player__stat--value").hide()
       $stat.find(".player__stat--edit input").val this.model.get stat
       $stat.find(".player__stat--edit").show()
+      $stat.find(".player__stat--edit input").focus()
 
-    saveStat: (e) ->
+      $stat.on "keypress", "input", $.proxy((e) ->
+        if e.which == 13
+          this.saveStat($stat)
+       , this)
+
+    saveStatEvent: (e) ->
       $stat = $(e.currentTarget).parent().parent()
-      console.log $stat
-      stat = $stat.find(".player__stat").attr "stat"
+      this.saveStat($stat)
 
-      value = parseInt $stat.find(".player__stat--edit input").val()
+    saveStat: ($stat) ->
+      $stat.off("keypress", "input")
+
+      stat = $stat.find(".player__stat").attr "stat"
+      $input = $stat.find(".player__stat--edit input")
+      inputType = $input.attr "type"
+      value = $input.val()
+
+      if typeof(inputType) != 'undefined' && inputType == "number"
+        console.log "number"
+        value = parseInt value
 
       this.model.set stat, value
       $stat.find(".player__stat--edit").hide()
@@ -105,6 +121,7 @@ $ ((app) ->
     healPlayer: (e) ->
       this.$el.find(".player__heal").hide()
       this.$el.find(".player__heal--edit").show()
+      this.$el.find(".player__heal--edit input").focus()
 
     saveHealing: (e) ->
       value = parseInt this.$el.find(".player__heal--edit input").val()
@@ -113,13 +130,13 @@ $ ((app) ->
       this.$el.find(".player__heal--edit").val 0
       this.$el.find(".player__heal").show()
 
-      stats = 
+      stats =
         damage: this.model.get("damage") - value
         health: this.model.get("health") + value
 
       stats.damage = if (stats.damage < 0) then 0 else stats.damage
 
-      this.model.set stats 
+      this.model.set stats
 
       this.reRender()
 

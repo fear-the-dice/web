@@ -7,9 +7,14 @@
   Templates: {}
   Players: []
   Config:
-    enviroment: 'production'
+    # enviroment must equal 'production', 'staging', or 'local'
+    enviroment: 'ENVGOESHERE'
     templates_path: 'templates/'
     templates_type: 'html'
+    auth_server:
+      local: 'localhost:3500'
+      staging: 'keepiteasy.net:3500'
+      production: 'keepiteasy.net:3500'
     socketio_server:
       local: 'localhost:1347'
       staging: 'keepiteasy.net:1347'

@@ -1,4 +1,6 @@
 {
+    "cdn": "http://cloud.keepiteasy.net/fear-the-dice/",
+    "version": "0.1.0",
     "server": "http://cloud.keepiteasy.net/fear-the-dice/",
     "socket": "http://fear-the-dice-socket.herokuapp.com/"
 }

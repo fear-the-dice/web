@@ -62,6 +62,7 @@ $ ((app) ->
     hitPlayer: (e) ->
       this.$el.find(".player__hit").hide()
       this.$el.find(".player__hit--edit").show()
+      this.$el.find(".player__hit--edit input").focus()
 
     saveDamage: (e) ->
       value = parseInt this.$el.find(".player__hit--edit input").val()

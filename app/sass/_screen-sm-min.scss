@@ -1,0 +1,321 @@
+@media(min-width:768px) {
+  html {
+    font-size:62.5%;
+  }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: .8rem;
+    background-color: $black2;
+    color: $white;
+  }
+
+  input {
+      font-size: 2rem;
+      height: 4rem;
+      width: 8rem;
+      color: $black;
+  }
+
+  h1 {
+      font-size: 4rem;
+      text-align: center;
+  }
+
+  h2,
+  h3 {
+    font-size: 2rem;
+    margin: 0rem 1rem;
+    display: inline-block;
+  }
+
+  button {
+    outline: 0rem;
+    height: 3rem;
+    width: 3.25rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border-color: transparent;
+    background-color: $white;
+    color: $black;
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  .navbar {
+    font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+    padding: 1rem 1rem 0rem .2rem;
+    margin-bottom: 0px;
+
+    h1, h2 {
+      text-align: center;
+      margin-top: 0px;
+      margin-right: 2rem;
+      display: block;
+    }
+  }
+
+  .game-header {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 6.5rem;
+    padding-left: 3.8rem;
+    border-bottom: $grey 1px solid;
+  }
+
+  .dm-navbar {
+      top: 12rem;
+  }
+
+  .base {
+      position: absolute;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      top: 12rem;
+      right: 0;
+      bottom: 3.5rem;
+      left: 0;
+      border-top: $grey 1px solid;
+      border-bottom: $grey 1px solid;
+
+      .affix {
+        top: 18rem;
+        bottom: 6rem;
+        overflow-y: scroll;
+        width: inherit;
+      }
+  }
+
+  .game-wrapper {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    overflow: hidden;
+  }
+
+  .game-wrapper {
+    right: 0px;
+    width: 75%;
+  }
+
+  .footer {
+      font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+      font-size: 1.5rem;
+      position: fixed;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+  }
+
+  .player__thumb {
+    width: 200px;
+    height: 140px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .monster,
+  .player {
+      font-size: 1.6rem;
+      padding: 2rem;
+      background-color: $blue;
+      color: $white;
+      display: none;
+      -moz-transform: scale(0.9);
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+      -moz-transition: all .2s ease-in-out;
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+
+      .lead {
+        margin-bottom: 0px;
+      }
+
+      &.turn {
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        margin-left: 2rem;
+      }
+
+      &.dead {
+        background-color: $red;
+      }
+
+      .monster__stat,
+      .monster__stat--locked,
+      .player__stat,
+      .player__stat--locked {
+          font-weight: 600;
+          margin-right: 1rem;
+          cursor: pointer;
+          display: inline-block;
+          padding: .5rem 0rem;
+      }
+
+      .player__name,
+      .monster__name,
+      .character__name,
+      .player__stat--value {
+          cursor: pointer;
+          margin: 0 1rem 0 0;
+      }
+
+      .monster__stat--locked,
+      .player__stat--locked,
+      .player__stat--value--locked {
+          cursor: auto;
+      }
+
+      .player__name--edit,
+      .monster__name--edit,
+      .character__name--edit,
+      .player__stat--edit,
+      .monster__stat--edit {
+          display: none;
+
+          i {
+              cursor: pointer;
+              margin-left: .5rem;
+          }
+      }
+
+      .player__name--edit,
+      .monster__name--edit,
+      .character__name--edit
+      {
+        input {
+          margin: 2rem 0rem .4rem 0rem;
+          width: 12rem;
+        }
+
+        i {
+          font-size: 2rem;
+        }
+      }
+
+      .player__control,
+      .player__hit,
+      .monster__hit,
+      .player__heal,
+      .monster__heal,
+      .monster__delete,
+      .player__delete {
+        cursor: pointer;
+        background-color: $red;
+        color: $white;
+        margin: .4rem 0rem;
+
+        &:hover {
+          background-color: $white;
+          color: $red;
+        }
+      }
+
+      .player__control {
+          background-color: $green;
+
+        &:hover {
+          background-color: $white;
+          color: $green;
+        }
+      }
+
+      .monster__heal,
+      .player__heal {
+        background-color: $green;
+        color: $white;
+
+        &:hover {
+          background-color: $white;
+          color: $green;
+        }
+      }
+
+      .monster__delete,
+      .player__delete {
+        background-color: $black;
+        color: $white;
+
+        &:hover {
+          background-color: $white;
+          color: $black;
+        }
+      }
+
+      .monster__hit--edit,
+      .player__hit--edit,
+      .monster__heal--edit,
+      .player__heal--edit {
+        display: none;
+
+        input {
+          width: 5rem;
+        }
+
+        i {
+            cursor: pointer;
+            font-size: 2rem;
+            margin-left: .5rem;
+        }
+      }
+  }
+
+  .base-view {
+      .turn__next_btn,
+      .player__hit,
+      .monster__hit,
+      .player__heal,
+      .monster__heal,
+      .monster__delete,
+      .player__delete {
+          display: none;
+      }
+  }
+
+  .active-player {
+      .turn__next_btn {
+          display: inline-block;
+      }
+
+      .player,
+      .monster {
+          &.turn,
+          &.active-player {
+              .player__hit,
+              .monster__hit,
+              .player__heal,
+              .monster__heal,
+              .monster__delete,
+              .player__delete {
+                  display: none;
+              }
+          }
+
+          .player__control {
+              display: none;
+          }
+
+          .player__hit,
+          .monster__hit,
+          .player__heal,
+          .monster__heal,
+          .monster__delete,
+          .player__delete {
+               display: inline-block;
+          }
+      }
+  }
+
+  .monster {
+      background-color: $yellow;
+  }
+}

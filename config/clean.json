@@ -2,6 +2,9 @@
   "wipe": [
     "public/"
   ],
+  "mustache": [
+    "index.mustache"
+  ],
   "css": [
     "public/css/**/*.css",
     "public/css/**/*.css.map",

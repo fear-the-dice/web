@@ -1,18 +1,28 @@
-.container
-  .row.text-center
-    h1 Fear the Dice 
-    button.players__add_btn
-      | Add Player
-    button.monster__add_btn
-      | Add Monster
-  .row.text-center
-    button.turn__next_btn
-      | Pass Turn 
-  .row
-    .col-md-3
+.sidebar
+  .row.sidebar-section
+    .col-xs-4
       h3='Monsters'
-      .monsters
-      h3='Players'
-      .players
-    .col-md-9
-      .game.dm-view
+    .col-xs-8.text-right
+      button.monster__add_btn.glyphicon.glyphicon-plus(alt=" New Monster")
+  .row.affix
+    .monsters
+
+  //-.row.sidebar-section
+    //-.row
+      //-.col-md-4
+        //-h3='Players'
+      //-.col-md-8.text-right
+        //-button.players__add_btn
+          //-| Add Player
+    //-.row
+      //-.players
+
+.game-wrapper
+  .row.text-left.game-header
+    .col-xs-4
+      h3='The Battle'
+    .col-xs-8.text-right
+      button.players__add_btn.glyphicon.glyphicon-user(alt="Add Player")
+      button.turn__next_btn.glyphicon.glyphicon-step-forward(alt="Pass Turn")
+      button.glyphicon.glyphicon-stop(alt="end Combat")
+  .game.dm-view.row.affix

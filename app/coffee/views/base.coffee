@@ -1,7 +1,6 @@
 $ ((app) ->
   app.Views.Base = Backbone.View.extend
     tagName: "div"
-    className: "container-fluid"
 
     events:
       "click .turn__next_btn": "nextTurn"

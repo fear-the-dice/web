@@ -1,0 +1,5 @@
+{
+  "staging": {
+    "command": "./config/stage.sh"
+  }
+}

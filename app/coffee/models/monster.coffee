@@ -14,5 +14,11 @@ $ ((app) ->
       manual: 343
       thumb: "//www.fillmurray.com/g/200/140"
       playling: false
+      str: "15 (+1)"
+      dex: "15 (+1)"
+      con: "15 (+1)"
+      int: "15 (+1)"
+      wis: "15 (+1)"
+      cha: "15 (+1)"
   this
 )(window.LKT)
