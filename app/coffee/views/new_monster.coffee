@@ -2,6 +2,7 @@ $ ((app) ->
   app.Views.NewMonster = app.Views.Monster.extend
     tagName: "div"
     className: "new-monster"
+    existing: false
 
     events:
       "click .glyphicon-floppy-save": "saveNewMonster"
@@ -12,6 +13,10 @@ $ ((app) ->
       this.model = model
       this.model.view = this
       this.open = false
+
+      if typeof this.model.get("id") != "undefined"
+        this.template = app.Templates.existing_monster
+        this.existing = true
 
       _.bindAll this, "render"
       this.model.bind "change", $.proxy(this.change, this)
@@ -40,13 +45,13 @@ $ ((app) ->
         "cha": this.$el.find(".input__stat[stat='cha']").val()
 
       this.model.set stats
-      console.log this.model
 
       this.model.save()
       this.removeModal()
 
-      app.Collections.Monster.push this.model
-      app.Collections.Monster.sort()
+      if this.existing == false
+        app.Collections.Monster.push this.model
+        app.Collections.Monster.sort()
 
   this
 )(window.LKT)

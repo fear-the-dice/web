@@ -6,15 +6,16 @@
         input.input__monster
         i.glyphicon.glyphicon-check
     .col-xs-8.col-md-6.text-right
-      button.glyphicon.glyphicon-fire.monster__hit(alt="Hit Me!")
+      button.glyphicon.glyphicon-fire.monster__hit(data-toggle="tooltip", title="Hit Me!")
       span.monster__hit--edit
         input.input__hit(type="number", value="0")
         i.glyphicon.glyphicon-check
-      button.glyphicon.glyphicon-heart.monster__heal(alt="Heal Me!")
+      button.glyphicon.glyphicon-heart.monster__heal(data-toggle="tooltip", title="Heal Me!")
       span.monster__heal--edit
         input.input__heal(type="number", value="0")
         i.glyphicon.glyphicon-check
-      button.glyphicon.glyphicon-remove.monster__delete(alt="Delete Me!")
+      button.glyphicon.glyphicon-pencil.monster__edit(data-toggle="tooltip", title="Edit Me!")
+      button.glyphicon.glyphicon-remove.monster__delete(data-toggle="tooltip", title="Delete Me!")
   .row
     .col-xs-2
       span.monster__stat(stat="ac")='AC:'

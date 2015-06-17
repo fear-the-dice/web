@@ -14,6 +14,7 @@ $ ((app) ->
       "click .monster__heal": "heal"
       "click .monster__heal--edit .glyphicon-check": "saveHealing"
 
+      "click .monster__edit": "editAllStats"
       "click .monster__delete": "deleteMonster"
 
     initialize: (model) ->
@@ -49,6 +50,25 @@ $ ((app) ->
       if this.model.get("duplicate") != true
         this.model.save()
 
+    editAllStats: (e) ->
+      $stats = this.$el.find(".monster__stat")
+
+      _.each $stats, $.proxy((stat) ->
+        $stat = $(stat).parent()
+        stat = $stat.find(".monster__stat").attr "stat"
+
+        $stat.find(".monster__stat--value").hide()
+        $stat.find(".monster__stat--edit input").val this.model.get stat
+        $stat.find(".monster__stat--edit").show()
+        $stat.find(".monster__stat--edit input").focus()
+
+        $stat.on "keypress", $.proxy((e) ->
+          if e.which == 13
+            this.saveStats($stats)
+         , this)
+
+      , this)
+
     editStat: (e) ->
       $stat = $(e.currentTarget).parent()
       stat = $stat.find(".monster__stat").attr "stat"
@@ -59,14 +79,20 @@ $ ((app) ->
 
       $stat.on "keypress", "input", $.proxy((e) ->
         if e.which == 13
-          this.saveStat($stat)
+          this.saveStat($stat, false)
        , this)
 
     saveStatEvent: (e) ->
       $stat = $(e.currentTarget).parent().parent()
-      this.saveStat($stat)
+      this.saveStat($stat, false)
 
-    saveStat: ($stat) ->
+    saveStats: ($stats) ->
+      _.each $stats, $.proxy((stat) ->
+        $stat = $(stat).parent()
+        this.saveStat $stat, false, false
+      , this)
+
+    saveStat: ($stat, save, render) ->
       $stat.off("keypress", "input")
 
       stat = $stat.find(".monster__stat").attr "stat"
@@ -74,20 +100,21 @@ $ ((app) ->
       inputType = $input.attr "type"
       value = $input.val()
 
-      if typeof(value) != 'undefined' && value == "number"
+      if typeof(inputType) != 'undefined' && inputType == "number"
         value = parseInt value
 
       this.model.set stat, value
       $stat.find(".monster__stat--edit").hide()
       $stat.find(".monster__stat--value").show()
 
-      if this.model.get("duplicate") != true
+      if (typeof(save) == undefined || save == true) && this.model.get("duplicate") != true
         this.model.save()
 
       if stat == "initiative"
         PubSub.publish "PlayerOrderChange"
 
-      this.reRender()
+      if typeof(render) == undefined || render == true
+        this.reRender()
 
     heal: (e) ->
       this.$el.find(".monster__heal").hide()

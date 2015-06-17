@@ -17,6 +17,7 @@ $ ((app) ->
       "click .player__heal": "healPlayer"
       "click .player__heal--edit .glyphicon-check": "saveHealing"
 
+      "click .player__edit": "editAllStats"
       "click .player__delete": "deletePlayer"
 
     initialize: (model) ->
@@ -77,6 +78,25 @@ $ ((app) ->
 
       this.model.save()
 
+    editAllStats: (e) ->
+      $stats = this.$el.find(".player__stat")
+
+      _.each $stats, $.proxy((stat) ->
+        $stat = $(stat).parent()
+        stat = $stat.find(".player__stat").attr "stat"
+
+        $stat.find(".player__stat--value").hide()
+        $stat.find(".player__stat--edit input").val this.model.get stat
+        $stat.find(".player__stat--edit").show()
+        $stat.find(".player__stat--edit input").focus()
+
+        $stat.on "keypress", $.proxy((e) ->
+          if e.which == 13
+            this.saveStats($stats)
+         , this)
+
+      , this)
+
     editStat: (e) ->
       $stat = $(e.currentTarget).parent()
       stat = $stat.find(".player__stat").attr "stat"
@@ -88,14 +108,20 @@ $ ((app) ->
 
       $stat.on "keypress", "input", $.proxy((e) ->
         if e.which == 13
-          this.saveStat($stat)
+          this.saveStat($stat, false)
        , this)
 
     saveStatEvent: (e) ->
       $stat = $(e.currentTarget).parent().parent()
-      this.saveStat($stat)
+      this.saveStat($stat, false)
 
-    saveStat: ($stat) ->
+    saveStats: ($stats) ->
+      _.each $stats, $.proxy((stat) ->
+        $stat = $(stat).parent()
+        this.saveStat $stat, false, false
+      , this)
+
+    saveStat: ($stat, save, render) ->
       $stat.off("keypress", "input")
 
       stat = $stat.find(".player__stat").attr "stat"
@@ -114,9 +140,11 @@ $ ((app) ->
       if stat == "initiative"
         PubSub.publish "PlayerOrderChange"
 
-      this.model.save()
+      if typeof(save) == undefined || save == true
+        this.model.save()
 
-      this.reRender()
+      if typeof(render) == undefined || render == true
+        this.reRender()
 
     healPlayer: (e) ->
       this.$el.find(".player__heal").hide()

@@ -1,0 +1,52 @@
+.col-xs-12.text-center
+  h2 New Monster
+.col-xs-12
+  .row
+    .col-md-12.text-center
+      span.monster__name--edit
+        input.input__monster(value='{{monster}}')
+  .row
+    .col-xs-2
+      span.monster__stat(stat="ac")='AC:'
+      span.monster__stat--edit
+        input.input__stat(stat="ac", type="number", value='{{ac}}')
+    .col-xs-2
+      span.monster__stat(stat="hp")='HP:'
+      span.monster__stat--edit
+        input.input__stat(stat="hp", type="number", value='{{hp}}')
+    .col-xs-2
+      span.monster__stat(stat="speed")='Speed:'
+      span.monster__stat--edit
+        input.input__stat(stat="speed", value='{{speed}}')
+    .col-xs-2
+      span.monster__stat(stat="str")='STR:'
+      span.monster__stat--edit
+        input.input__stat(stat="str", value='{{str}}')
+    .col-xs-2
+      span.monster__stat(stat="dex")='DEX:'
+      span.monster__stat--edit
+        input.input__stat(stat="dex", value='{{dex}}')
+    .col-xs-2
+      span.monster__stat(stat="con")='CON:'
+      span.monster__stat--edit
+        input.input__stat(stat="con", value='{{con}}')
+  .row
+    .col-xs-2
+      span.monster__stat(stat="int")='INT:'
+      span.monster__stat--edit
+        input.input__stat(stat="int", value='{{int}}')
+    .col-xs-2
+      span.monster__stat(stat="wis")='WIS:'
+      span.monster__stat--edit
+        input.input__stat(stat="wis", value='{{wis}}')
+    .col-xs-2
+      span.monster__stat(stat="cha")='CHA:'
+      span.monster__stat--edit
+        input.input__stat(stat="cha", value='{{cha}}')
+    .col-xs-2
+      span.monster__stat(stat="xp")='XP:'
+      span.monster__stat--edit
+        input.input__stat(stat="xp", value='{{xp}}')
+    .col-xs-4.text-center
+      button.new-monster__save.glyphicon.glyphicon-floppy-save
+      button.new-monster__save.glyphicon.glyphicon-remove

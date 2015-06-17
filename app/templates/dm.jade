@@ -3,7 +3,7 @@
     .col-xs-4
       h3='Monsters'
     .col-xs-8.text-right
-      button.monster__add_btn.glyphicon.glyphicon-plus(alt=" New Monster")
+      button.monster__add_btn.glyphicon.glyphicon-plus(data-toggle="tooltip", title=" New Monster")
   .row.affix
     .monsters
 
@@ -22,7 +22,7 @@
     .col-xs-4
       h3='The Battle'
     .col-xs-8.text-right
-      button.players__add_btn.glyphicon.glyphicon-user(alt="Add Player")
-      button.turn__next_btn.glyphicon.glyphicon-step-forward(alt="Pass Turn")
-      button.glyphicon.glyphicon-stop(alt="end Combat")
+      button.players__add_btn.glyphicon.glyphicon-user(data-toggle="tooltip", title="Add All Player")
+      button.turn__next_btn.glyphicon.glyphicon-step-forward(data-toggle="tooltip", title="Pass Turn")
+      button.glyphicon.glyphicon-stop(data-toggle="tooltip", title="End Combat")
   .game.dm-view.row.affix
