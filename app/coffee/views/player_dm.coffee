@@ -3,7 +3,7 @@ $ ((app) ->
     events:
       "click .player__stat": "editStat"
       "click .player__stat--value": "editStat"
-      "click .player__stat--edit .glyphicon-check": "saveStat"
+      "click .player__stat--edit .glyphicon-check": "saveStatEvent"
 
       "click .character__name": "editCharacter"
       "click .character__name--edit .glyphicon-check": "saveCharacter"
@@ -86,11 +86,26 @@ $ ((app) ->
       $stat.find(".player__stat--edit").show()
       $stat.find(".player__stat--edit input").focus()
 
-    saveStat: (e) ->
-      $stat = $(e.currentTarget).parent().parent()
-      stat = $stat.find(".player__stat").attr "stat"
+      $stat.on "keypress", "input", $.proxy((e) ->
+        if e.which == 13
+          this.saveStat($stat)
+       , this)
 
-      value = parseInt $stat.find(".player__stat--edit input").val()
+    saveStatEvent: (e) ->
+      $stat = $(e.currentTarget).parent().parent()
+      this.saveStat($stat)
+
+    saveStat: ($stat) ->
+      $stat.off("keypress", "input")
+
+      stat = $stat.find(".player__stat").attr "stat"
+      $input = $stat.find(".player__stat--edit input")
+      inputType = $input.attr "type"
+      value = $input.val()
+
+      if typeof(inputType) != 'undefined' && inputType == "number"
+        console.log "number"
+        value = parseInt value
 
       this.model.set stat, value
       $stat.find(".player__stat--edit").hide()
