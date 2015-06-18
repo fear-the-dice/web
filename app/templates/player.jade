@@ -1,6 +1,4 @@
-.col-xs-3
-  img.player__thumb(src="{{thumb}}")
-.col-xs-8
+.col-xs-11
     .row
         h2.player__name--locked='{{character}}'
         h3.player__name--locked='({{name}})'
@@ -12,5 +10,5 @@
             span.player__stat--locked(stat="damage")='Damage Taken:'
             span.player__stat--value--locked='{{damage}}'
 .col-xs-1
-    .row
+    .row.text-right
         button.glyphicon.glyphicon-user.player__control(data-toggle="tooltip", title="Take Control")
