@@ -1,38 +1,42 @@
 $ ((app) ->
-  app.Views.NewMonster = app.Views.Monster.extend
+  app.Views.NewPlayer = app.Views.Monster.extend
     tagName: "div"
-    className: "new-monster"
+    className: "new-player"
     existing: false
 
     events:
-      "click .new-monster__save": "saveNewMonster"
-      "click .new-monster__cancel": "removeModal"
+      "click .new-player__save": "saveNewPlayer"
+      "click .new-player__cancel": "removeModal"
 
     initialize: (model) ->
-      this.template = app.Templates.new_monster
+      this.template = app.Templates.new_player
       this.model = model
       this.model.view = this
       this.open = false
 
       if typeof this.model.get("id") != "undefined"
-        this.template = app.Templates.existing_monster
+        this.template = app.Templates.existing_player
         this.existing = true
 
       _.bindAll this, "render"
       this.model.bind "change", $.proxy(this.change, this)
       this.render()
 
-      this.$el.find(".monster__stat--edit").show()
-      this.$el.find(".monster__name--edit").show()
+      this.$el.find(".player__stat--edit").show()
+      this.$el.find(".player__name--edit").show()
 
       this
 
     removeModal: (e) ->
       this.$el.remove()
 
-    saveNewMonster: (e) ->
+      view = new app.Views.Players()
+      $(".base").prepend view.$el
+
+    saveNewPlayer: (e) ->
       stats =
-        "monster": this.$el.find(".input__monster").val()
+        "character": this.$el.find(".input__character").val()
+        "name": this.$el.find(".input__player").val()
         "ac": parseInt this.$el.find(".input__stat[stat='ac']").val()
         "hp": parseInt this.$el.find(".input__stat[stat='hp']").val()
         "speed": this.$el.find(".input__stat[stat='speed']").val()
@@ -50,8 +54,8 @@ $ ((app) ->
       this.removeModal()
 
       if this.existing == false
-        app.Collections.Monster.push this.model
-        app.Collections.Monster.sort()
+        app.Collections.Player.push this.model
+        app.Collections.Player.sort()
 
   this
 )(window.LKT)

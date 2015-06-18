@@ -31,19 +31,45 @@ h3 {
   display: inline-block;
 }
 
-.new-monster {
+.new-monster.monster,
+.new-player.monster,
+.players-modal {
   z-index: 9999;
   background: $yellow;
   top: 50%;
   width: 100%;
   clear: both;
   position: absolute;
-  color: $black;
+  color: $white;
   margin-top: -10rem;
+  font-size: 1.6rem;
+
+  .input__player,
+  .input__character {
+    margin: auto;
+  }
+
+  input {
+    color: $black;
+  }
+
+  .character__name--edit {
+    display: inline;
+  }
+
+  h2 {
+    font-family: "Monthoers", 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 3rem;
+  }
 
   .monster__stat {
     font-size: 2rem;
     margin-bottom: 1rem;
+  }
+
+  .players {
+    margin-top: 1rem;
+    margin-left: 14rem;
   }
 }
 
