@@ -15,7 +15,7 @@ $ ((app) ->
 
     render: ->
       this.$el.html Mustache.render this.template, this.model.toJSON()
-      this.$el.addClass "text-center row"
+      this.$el.addClass "text-center col-xs-12 col-md-5"
       this.$el
 
     addPlayer: ->

@@ -35,7 +35,7 @@ $ ((app) ->
   # Define array of all template files
   templates = new Array "player", "monster", "base", "dm",
     "player_dm", "monster_dm","player_sidebar", "monster_sidebar",
-    "new_monster"
+    "new_monster", "existing_monster", "players", "new_player"
 
   # Load all template files into LKT.Templates
   _.each templates, (template) ->

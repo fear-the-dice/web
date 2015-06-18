@@ -5,6 +5,7 @@ $ ((app) ->
 
     events:
       "click .glyphicon-remove": "deleteMonster"
+      "click .glyphicon-pencil": "editMonster"
       "click .glyphicon-chevron-right": "addMonster"
 
     initialize: (model) ->
@@ -17,6 +18,13 @@ $ ((app) ->
       this.$el.html Mustache.render this.template, this.model.toJSON()
       this.$el.addClass "text-center row"
       this.$el
+
+    editMonster: ->
+      model = this.model.clone()
+      view = new app.Views.NewMonster model
+      $(".base").prepend view.$el
+      view.postRender()
+      model
 
     addMonster: ->
       model = this.model.clone()
