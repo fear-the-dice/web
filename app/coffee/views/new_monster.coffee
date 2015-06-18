@@ -28,7 +28,14 @@ $ ((app) ->
       this
 
     removeModal: (e) ->
-      this.$el.remove()
+      if this.open is true
+        this.open = false
+        this.$el.slideUp (e) ->
+          this.$el.remove()
+      else
+        this.$el.remove()
+      
+      this.$el
 
     saveNewMonster: (e) ->
       stats =

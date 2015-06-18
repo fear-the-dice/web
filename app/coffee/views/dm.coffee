@@ -57,6 +57,7 @@ $ ((app) ->
     addPlayer: (e) ->
       view = new app.Views.Players()
       $(".base").prepend view.$el
+      view.postRender()
 
     addMonster: (e) ->
       model = new app.Models.Monster()

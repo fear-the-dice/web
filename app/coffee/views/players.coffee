@@ -10,6 +10,8 @@ $ ((app) ->
     initialize: (model) ->
       this.template = app.Templates.players
       this.render()
+      this.open = false
+
       this
 
     render: ->
@@ -22,6 +24,13 @@ $ ((app) ->
 
       this.pubsub_init()
       
+      this.$el
+
+    postRender: () ->
+      if this.open is false
+        this.$el.slideDown()
+        this.open = true
+
       this.$el
 
     pubsub_init: ->
@@ -39,7 +48,14 @@ $ ((app) ->
       model
 
     removeModal: (e) ->
-      this.$el.remove()
+      if this.open is true
+        this.open = false
+        this.$el.slideUp (e) ->
+          this.$el.remove()
+      else
+        this.$el.remove()
+
+      this.$el
 
     addPlayer: ->
       this.model.set "playing", true

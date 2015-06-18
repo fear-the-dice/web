@@ -28,10 +28,17 @@ $ ((app) ->
       this
 
     removeModal: (e) ->
-      this.$el.remove()
+      if this.open is true
+        this.open = false
+        this.$el.slideUp (e) ->
+          this.$el.remove()
+          view = new app.Views.Players()
+          $(".base").prepend view.$el
+          view.postRender()
+      else
+        this.$el.remove()
 
-      view = new app.Views.Players()
-      $(".base").prepend view.$el
+      this.$el
 
     saveNewPlayer: (e) ->
       stats =
