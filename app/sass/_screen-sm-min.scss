@@ -128,22 +128,22 @@
       background-color: $blue;
       color: $white;
       display: none;
-      -moz-transform: scale(0.9);
-      -webkit-transform: scale(0.9);
-      transform: scale(0.9);
-      -moz-transition: all .2s ease-in-out;
-      -webkit-transition: all .2s ease-in-out;
-      transition: all .2s ease-in-out;
+      /*-moz-transform: scale(0.9);*/
+      /*-webkit-transform: scale(0.9);*/
+      /*transform: scale(0.9);*/
+      /*-moz-transition: all .2s ease-in-out;*/
+      /*-webkit-transition: all .2s ease-in-out;*/
+      /*transition: all .2s ease-in-out;*/
 
       .lead {
         margin-bottom: 0px;
       }
 
       &.turn {
-        -moz-transform: scale(1);
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        margin-left: 2rem;
+        /*-moz-transform: scale(1);*/
+        /*-webkit-transform: scale(1);*/
+        /*transform: scale(1);*/
+        /*margin-left: 2rem;*/
       }
 
       &.dead {
