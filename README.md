@@ -1,6 +1,6 @@
 [![GitHub tag](https://img.shields.io/github/tag/fear-the-dice/web.svg)](https://github.com/fear-the-dice/web/tags)
 [![Dependency Status](https://david-dm.org/fear-the-dice/web.svg)](https://david-dm.org/fear-the-dice/web)
-[![GPL](https://img.shields.io/badge/license-GPLv2-green.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![GitHub license](https://img.shields.io/github/license/fear-the-dice/web.svg)]()
 
 #Fear the Dice
 A tool for helping manage combat in a turn based environment. Allowing DM's/GM's to control stats such as AC, HP, and damage taken for a group.
