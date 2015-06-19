@@ -18,6 +18,8 @@ $ ((app) ->
         this.template = app.Templates.existing_player
         this.existing = true
 
+      console.log this.template
+
       _.bindAll this, "render"
       this.model.bind "change", $.proxy(this.change, this)
       this.render()

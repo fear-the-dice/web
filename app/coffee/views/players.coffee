@@ -25,6 +25,8 @@ $ ((app) ->
       this.pubsub_remove()
       this.pubsub_init()
 
+      PubSub.publish "PlayersModal.init"
+
       this
 
     render: ->

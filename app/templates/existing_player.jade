@@ -1,6 +1,6 @@
 .row
   .col-xs-12.text-center
-    h2 New Player
+    h2 Edit Player
 .row
   .col-xs-12.text-right
     button.new-player__save.glyphicon.glyphicon-floppy-save
@@ -9,14 +9,14 @@
   .col-xs-12
     .row
       .col-xs-3
-        span.character__name='{{character}}'
+        span.character__name='Character:'
         span.character__name--edit
-          input.input__character
+          input.input__character(value='{{character}}')
           i.glyphicon.glyphicon-check
       .col-xs-3
-        span.player__name='{{name}}'
+        span.player__name='Player:'
         span.player__name--edit
-          input.input__player
+          input.input__player(value='{{name}}')
           i.glyphicon.glyphicon-check
       .col-xs-2
         span.player__stat(stat="ac")='AC:'

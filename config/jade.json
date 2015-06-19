@@ -14,9 +14,10 @@
       "public/templates/monster_sidebar.html": "app/templates/monster_sidebar.jade",
       "public/templates/player_sidebar.html": "app/templates/player_sidebar.jade",
       "public/templates/new_monster.html": "app/templates/new_monster.jade",
+      "public/templates/new_player.html": "app/templates/new_player.jade",
       "public/templates/existing_monster.html": "app/templates/existing_monster.jade",
-      "public/templates/players.html": "app/templates/players.jade",
-      "public/templates/new_player.html": "app/templates/new_player.jade"
+      "public/templates/existing_player.html": "app/templates/existing_player.jade",
+      "public/templates/players.html": "app/templates/players.jade"
     }
   }
 }
