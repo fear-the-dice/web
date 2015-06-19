@@ -1,4 +1,5 @@
 [![GitHub tag](https://img.shields.io/github/tag/fear-the-dice/web.svg)](https://github.com/fear-the-dice/web/tags)
+[![GitHub issues](https://img.shields.io/github/issues/fear-the-dice/web.svg)](https://github.com/fear-the-dice/web/issues)
 [![Dependency Status](https://david-dm.org/fear-the-dice/web.svg)](https://david-dm.org/fear-the-dice/web)
 [![GitHub license](https://img.shields.io/github/license/fear-the-dice/web.svg)]()
 
