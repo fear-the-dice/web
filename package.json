@@ -30,7 +30,8 @@
     "url": "https://github.com/fear-the-dice/web/issues"
   },
   "scripts": {
-    "build": "grunt release"
+    "build": "grunt production",
+    "test": "grunt test"
   },
   "homepage": "http://fearthedice.com",
   "devDependencies": {
