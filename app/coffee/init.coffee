@@ -9,7 +9,7 @@ $ ((app) ->
       s4() + '-' + s4() + s4() + s4()
 
   $.ajax
-    url: 'http://' + app.Config.auth_server[app.Config.enviroment]
+    url: app.Config.auth_server[app.Config.enviroment]
     async: false
     dataType: "text"
     crossDomain: true
@@ -50,7 +50,7 @@ $ ((app) ->
         this
 
   # Connect to our socket.io server
-  app.socket = io "http://" + app.Config.socketio_server[app.Config.enviroment]
+  app.socket = io app.Config.socketio_server[app.Config.enviroment]
   this
 
 )(window.LKT)

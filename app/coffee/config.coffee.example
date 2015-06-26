@@ -12,14 +12,14 @@
     templates_path: 'templates/'
     templates_type: 'html'
     auth_server:
-      local: 'localhost:3500'
-      staging: 'keepiteasy.net:3500'
-      production: 'keepiteasy.net:3500'
+      local: 'http://localhost:3500'
+      staging: 'http://keepiteasy.net:3500'
+      production: 'https://fear-the-dice-auth.herokuapp.com'
     socketio_server:
-      local: 'localhost:1347'
-      staging: 'keepiteasy.net:1347'
-      production: 'fear-the-dice-socket.herokuapp.com'
+      local: 'http://localhost:1347'
+      staging: 'http://keepiteasy.net:1347'
+      production: 'https://fear-the-dice-socket.herokuapp.com'
     api_server:
-      local: 'localhost:3000'
-      staging: 'keepiteasy.net:3000'
-      production: 'fear-the-dice-api.herokuapp.com'
+      local: 'http://localhost:3000'
+      staging: 'http://keepiteasy.net:3000'
+      production: 'https://fear-the-dice-api.herokuapp.com'
