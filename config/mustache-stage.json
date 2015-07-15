@@ -1,6 +1,6 @@
 {
     "cdn": "http://cloud.keepiteasy.net/fear-the-dice/",
     "version": "",
-    "server": "",
+    "server": "/lkt/",
     "socket": "http://keepiteasy.net:1347/"
 }

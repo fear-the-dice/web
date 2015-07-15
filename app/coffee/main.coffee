@@ -5,14 +5,24 @@ $ ((app) ->
   # Configure router
   AppRouter = Backbone.Router.extend
     routes:
-      "": "home"
-      "dm": "dm"
+      "players(/:room)": "players"
+      "dm(/:room)": "dm"
 
-    home: ->
+    players: (room) ->
+      console.log("players %s", room)
+      room = "default" if room == null
+      app.socket_room = room
+      app.socket.emit "Join", app.socket_room
+
       view = new app.Views.Base()
       $("body .base").html view.$el
 
-    dm: ->
+    dm: (room) ->
+      console.log("dm %s", room)
+      room = "default" if room == null
+      app.socket_room = room
+      app.socket.emit "Join", app.socket_room
+
       view = new app.Views.Dm()
       $("body .base").html view.$el
 
@@ -72,7 +82,7 @@ $ ((app) ->
 
   # Light the fuse!
   new AppRouter()
-  Backbone.history.start()
+  Backbone.history.start({pushState: true})
   this
 
 )(window.LKT)
