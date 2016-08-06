@@ -14,10 +14,10 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
-    "bootstrap": "~3.3.4",
-    "backbone": "~1.1.2",
-    "pubsub-js": "~1.5.2",
-    "mustache": "~2.0.0"
+    "jquery": "~3.1.x",
+    "bootstrap": "~3.3.x",
+    "backbone": "~1.1.x",
+    "pubsub-js": "~1.5.x",
+    "mustache": "~2.0.x"
   }
 }
