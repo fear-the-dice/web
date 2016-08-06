@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": "~3.1.x",
     "bootstrap": "~3.3.x",
-    "backbone": "~1.1.x",
+    "backbone": "~1.0.x",
     "pubsub-js": "~1.5.x",
     "mustache": "~2.0.x"
   }

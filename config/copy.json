@@ -5,15 +5,8 @@
         "expand": true,
         "flatten": true,
         "filter": "isFile",
-        "src"    : "bower_components/bootstrap/fonts/*", 
-        "dest"   : "public/css/fonts"
-      },
-      {
-        "expand": true,
-        "flatten": true,
-        "filter": "isFile",
         "src"    : "fonts/*", 
-        "dest"   : "public/css/fonts"
+        "dest"   : "public/fonts"
       }
     ]
   }

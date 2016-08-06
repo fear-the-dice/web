@@ -1,7 +1,0 @@
-{
-  "development": {
-    "src": [
-      "public/js/main.js"
-    ]
-  }
-}
