@@ -15,6 +15,19 @@ $ ((app) ->
       this.monsterView = app.Views.MonsterDM
       this.turn = 0
 
+      this.pubSub =
+        gameCollection:
+          sort: ''
+        playerCollection:
+          add: ''
+          destroy: ''
+        monsterCollection:
+          add: ''
+          destroy: ''
+        playerModal:
+          hide: ''
+
+      this.pubsub_remove()
       this.pubsub_init()
       this.socket_init()
 
@@ -22,13 +35,24 @@ $ ((app) ->
       this.loadMonsters()
 
     pubsub_init: ->
-      PubSub.subscribe "GameCollection.sort", $.proxy(this.reRender, this)
+      this.pubSub.gameCollection.sort = PubSub.subscribe "GameCollection.sort", $.proxy(this.reRender, this)
+      this.pubSub.playerCollection.add = PubSub.subscribe "PlayerCollection.add", $.proxy(this.addSidebarPlayer, this)
+      this.pubSub.playerCollection.destroy = PubSub.subscribe "PlayerCollection.destroy", $.proxy(this.addSidebarPlayer, this)
+      this.pubSub.monsterCollection.add = PubSub.subscribe "MonsterCollection.add", $.proxy(this.addSidebarMonster, this)
+      this.pubSub.monsterCollection.destroy = PubSub.subscribe "MonsterCollection.destroy", $.proxy(this.addSidebarMonster, this)
+      this.pubSub.playerModal.hide = PubSub.subscribe "PlayerModal.hide", $.proxy(this.addPlayer, this)
 
-      PubSub.subscribe "PlayerCollection.add", $.proxy(this.addSidebarPlayer, this)
-      PubSub.subscribe "MonsterCollection.add", $.proxy(this.addSidebarMonster, this)
+      this
 
-      PubSub.subscribe "PlayerCollection.destroy", $.proxy(this.addSidebarPlayer, this)
-      PubSub.subscribe "MonsterCollection.destroy", $.proxy(this.addSidebarMonster, this)
+    pubsub_remove: ->
+      PubSub.unsubscribe this.pubSub.gameCollection.sort
+      PubSub.unsubscribe this.pubSub.playerCollection.add
+      PubSub.unsubscribe this.pubSub.playerCollection.destroy
+      PubSub.unsubscribe this.pubSub.monsterCollection.add
+      PubSub.unsubscribe this.pubSub.monsterCollection.destroy
+      PubSub.unsubscribe this.pubSub.playerModal.hide
+
+      this
 
     addSidebarMonster: ->
       this.$el.find(".monsters").html ""
@@ -57,6 +81,7 @@ $ ((app) ->
     addPlayer: (e) ->
       view = new app.Views.Players()
       $(".base").prepend view.$el
+      view.postRender()
 
     addMonster: (e) ->
       model = new app.Models.Monster()

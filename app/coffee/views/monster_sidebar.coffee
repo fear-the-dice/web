@@ -20,11 +20,11 @@ $ ((app) ->
       this.$el
 
     editMonster: ->
-      model = this.model.clone()
-      view = new app.Views.NewMonster model
+      view = new app.Views.NewMonster this.model
       $(".base").prepend view.$el
       view.postRender()
-      model
+
+      this.model
 
     addMonster: ->
       model = this.model.clone()

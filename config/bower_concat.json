@@ -1,14 +1,22 @@
 {
-  "development": {
-    "dest": "public/js/vendor/_bower.js",
-    "cssDest": "public/css/vendor/_bower.css",
-    "dependencies": {
-        "pubsub-js": "jquery",
-        "underscore": "jquery",
-        "backbone": "underscore"
-    },
-    "bowerOptions": {
-      "relative": false
+    "development": {
+        "mainFiles": {
+            "bootstrap": [
+                "dist/css/bootstrap.css",
+                "dist/css/bootstrap.css.map"
+            ]
+        },
+        "dest": {
+            "js": "public/js/vendor/_bower.js",
+            "css": "public/css/vendor/_bower.css"
+        },
+        "dependencies": {
+            "pubsub-js": "jquery",
+            "underscore": "pubsub-js",
+            "backbone": "underscore"
+        },
+        "bowerOptions": {
+            "relative": false
+        }
     }
-  }
 }

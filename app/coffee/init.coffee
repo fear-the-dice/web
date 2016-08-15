@@ -9,7 +9,7 @@ $ ((app) ->
       s4() + '-' + s4() + s4() + s4()
 
   $.ajax
-    url: 'http://' + app.Config.auth_server[app.Config.enviroment]
+    url: app.Config.auth_server[app.Config.enviroment]
     async: false
     dataType: "text"
     crossDomain: true
@@ -35,7 +35,7 @@ $ ((app) ->
   # Define array of all template files
   templates = new Array "player", "monster", "base", "dm",
     "player_dm", "monster_dm","player_sidebar", "monster_sidebar",
-    "new_monster", "existing_monster", "players", "new_player"
+    "new_monster", "existing_monster", "players", "new_player", "existing_player"
 
   # Load all template files into LKT.Templates
   _.each templates, (template) ->
@@ -50,7 +50,7 @@ $ ((app) ->
         this
 
   # Connect to our socket.io server
-  app.socket = io "http://" + app.Config.socketio_server[app.Config.enviroment]
+  app.socket = io app.Config.socketio_server[app.Config.enviroment]
   this
 
 )(window.LKT)

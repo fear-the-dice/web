@@ -1,4 +1,7 @@
 $ ((app) ->
+  # Allow immediate exceptions in pubsub, lets remove this once we go live
+  PubSub.immediateExceptions = true
+
   # Configure router
   AppRouter = Backbone.Router.extend
     routes:

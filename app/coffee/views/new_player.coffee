@@ -18,6 +18,8 @@ $ ((app) ->
         this.template = app.Templates.existing_player
         this.existing = true
 
+      console.log this.template
+
       _.bindAll this, "render"
       this.model.bind "change", $.proxy(this.change, this)
       this.render()
@@ -25,13 +27,41 @@ $ ((app) ->
       this.$el.find(".player__stat--edit").show()
       this.$el.find(".player__name--edit").show()
 
+      this.pubSub =
+        monsterModal:
+          init: ''
+
+      this.pubsub_remove()
+      this.pubsub_init()
+
+      PubSub.publish "PlayerModal.init"
+
+      this
+
+    pubsub_init: ->
+      this.pubSub.monsterModal.init = PubSub.subscribe "MonsterModal.init", $.proxy(this.removeModal, this)
+
+      this
+
+    pubsub_remove: ->
+      PubSub.unsubscribe this.pubSub.monsterModal.init
+
       this
 
     removeModal: (e) ->
-      this.$el.remove()
+      this.pubsub_remove()
 
-      view = new app.Views.Players()
-      $(".base").prepend view.$el
+      if this.open is true
+        this.open = false
+        this.$el.slideUp $.proxy((e) ->
+          this.$el.remove()
+        , this)
+      else
+        this.$el.remove()
+
+      PubSub.publish "PlayerModal.hide"
+
+      this.$el
 
     saveNewPlayer: (e) ->
       stats =
@@ -41,12 +71,6 @@ $ ((app) ->
         "hp": parseInt this.$el.find(".input__stat[stat='hp']").val()
         "speed": this.$el.find(".input__stat[stat='speed']").val()
         "xp": parseInt this.$el.find(".input__stat[stat='xp']").val()
-        "str": this.$el.find(".input__stat[stat='str']").val()
-        "dex": this.$el.find(".input__stat[stat='dex']").val()
-        "con": this.$el.find(".input__stat[stat='con']").val()
-        "int": this.$el.find(".input__stat[stat='int']").val()
-        "wis": this.$el.find(".input__stat[stat='wis']").val()
-        "cha": this.$el.find(".input__stat[stat='cha']").val()
 
       this.model.set stats
 

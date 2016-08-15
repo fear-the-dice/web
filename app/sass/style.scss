@@ -35,6 +35,7 @@ h3 {
 .new-player.monster,
 .players-modal {
   z-index: 9999;
+  display: none;
   background: $yellow;
   top: 50%;
   width: 100%;
@@ -128,7 +129,7 @@ button {
     position: absolute;
     overflow-x: hidden;
     overflow-y: scroll;
-    top: 12rem;
+    top: 11.25rem;
     right: 0;
     bottom: 3.5rem;
     left: 0;
@@ -182,22 +183,14 @@ button {
     background-color: $blue;
     color: $white;
     display: none;
-    /*-moz-transform: scale(0.9);*/
-    /*-webkit-transform: scale(0.9);*/
-    /*transform: scale(0.9);*/
-    /*-moz-transition: all .2s ease-in-out;*/
-    /*-webkit-transition: all .2s ease-in-out;*/
-    /*transition: all .2s ease-in-out;*/
-    margin: 2rem;
+    margin: 0 2rem;
+    border-bottom: 1px solid $black;
 
     .lead {
       margin-bottom: 0px;
     }
 
     &.turn {
-      /*-moz-transform: scale(1);*/
-      /*-webkit-transform: scale(1);*/
-      /*transform: scale(1);*/
       border: 1rem solid $white;
     }
 

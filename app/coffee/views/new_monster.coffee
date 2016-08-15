@@ -25,10 +25,45 @@ $ ((app) ->
       this.$el.find(".monster__stat--edit").show()
       this.$el.find(".monster__name--edit").show()
 
+      this.pubSub =
+        playersModal:
+          init: ''
+        playerModal:
+          init: ''
+
+      this.pubsub_remove()
+      this.pubsub_init()
+
+      PubSub.publish "MonsterModal.init"
+
+      this
+
+    pubsub_init: ->
+      this.pubSub.playersModal.init = PubSub.subscribe "PlayersModal.init", $.proxy(this.removeModal, this)
+      this.pubSub.playerModal.init = PubSub.subscribe "PlayerModal.init", $.proxy(this.removeModal, this)
+
+      this
+
+    pubsub_remove: ->
+      PubSub.unsubscribe this.pubSub.playersModal.init
+      PubSub.unsubscribe this.pubSub.playerModal.init
+
       this
 
     removeModal: (e) ->
-      this.$el.remove()
+      this.pubsub_remove()
+
+      if this.open is true
+        this.open = false
+        this.$el.slideUp $.proxy((e) ->
+          this.$el.remove()
+        , this)
+      else
+        this.$el.remove()
+
+      PubSub.publish "MonsterModal.hide"
+      
+      this.$el
 
     saveNewMonster: (e) ->
       stats =
