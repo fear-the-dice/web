@@ -30,12 +30,18 @@
     "url": "https://github.com/fear-the-dice/web/issues"
   },
   "scripts": {
-    "build": "grunt production",
+    "start": "./node_modules/.bin/browser-sync -c bs-config.js start",
+    "build": "./node_modules/.bin/grunt",
+    "build:production": "grunt production",
     "test": "grunt test"
   },
   "homepage": "http://fearthedice.com",
   "devDependencies": {
+    "browser-sync": "^2.14.0",
     "grunt-shell": "~1.3.x",
-    "grunt-text-replace": "~0.4.x"
+    "grunt-text-replace": "~0.4.x",
+    "node-sass": "^3.8.0",
+    "npm-run-all": "^2.3.0",
+    "sass": "^0.5.0"
   }
 }
