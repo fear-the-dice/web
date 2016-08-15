@@ -2,7 +2,7 @@ var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 
 module.exports = {
-    watch: true,
+    entry: './app/app.js',
     output: {
         path: __dirname + '/public/dist',
         filename: 'bundle.js'

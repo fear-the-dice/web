@@ -45,8 +45,16 @@
     "url": "https://github.com/fear-the-dice/web/issues"
   },
   "scripts": {
-    "build": "grunt production && webpack app/app.js",
-    "test": "grunt test"
+    "start": "node ./node_modules/.bin/npm-run-all build browsersync",
+    "browsersync": "node ./node_modules/.bin/browser-sync -c bs-config.js start",
+    "build": "node ./node_modules/.bin/npm-run-all grunt webpack",
+    "grunt": "node ./node_modules/.bin/grunt",
+    "webpack": "node ./node_modules/.bin/webpack",
+    "test": "mode ./node_modules/.bin/grunt test"
   },
-  "homepage": "http://fearthedice.com"
+  "homepage": "http://fearthedice.com",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "npm-run-all": "^2.3.0"
+  }
 }
